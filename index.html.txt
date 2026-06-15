@@ -1,0 +1,1051 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Summer Learning Adventure 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple: #7C3AED;
+    --purple-light: #A78BFA;
+    --purple-pale: #EDE9FE;
+    --pink: #EC4899;
+    --pink-light: #F9A8D4;
+    --pink-pale: #FCE7F3;
+    --orange: #F97316;
+    --orange-light: #FED7AA;
+    --orange-pale: #FFF7ED;
+    --yellow: #FBBF24;
+    --yellow-pale: #FFFBEB;
+    --green: #10B981;
+    --green-pale: #ECFDF5;
+    --blue: #3B82F6;
+    --blue-pale: #EFF6FF;
+    --red: #EF4444;
+    --white: #FFFFFF;
+    --off-white: #FAFAFA;
+    --text-dark: #1E1B4B;
+    --text-mid: #4B5563;
+    --text-light: #9CA3AF;
+    --radius: 20px;
+    --nav-h: 58px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; overflow: hidden; }
+  body { font-family: 'Inter', sans-serif; background: var(--off-white); color: var(--text-dark); }
+
+
+  /* ── NAV ── */
+  nav.top-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    background: linear-gradient(90deg, #7C3AED, #EC4899);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem; height: var(--nav-h);
+    box-shadow: 0 4px 20px rgba(124,58,237,0.3);
+  }
+  .nav-logo {
+    font-family: 'Nunito', sans-serif; font-weight: 900;
+    font-size: 1.1rem; color: #fff; letter-spacing: -0.3px;
+    white-space: nowrap;
+  }
+  .top-nav ul { list-style: none; display: flex; gap: 0.5rem; align-items: center; }
+  .top-nav ul button {
+    background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.85); border-radius: 50px;
+    font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.78rem;
+    padding: 0.3rem 0.85rem; cursor: pointer;
+    transition: all 0.2s;
+  }
+  .top-nav ul button:hover, .top-nav ul button.active {
+    background: rgba(255,255,255,0.3); color: #fff; border-color: rgba(255,255,255,0.6);
+  }
+  .top-nav ul button.active { background: var(--yellow); border-color: var(--yellow); color: #fff; }
+
+
+  /* ── CAROUSEL WRAPPER ── */
+  .carousel-track-outer {
+    position: fixed;
+    top: var(--nav-h);
+    left: 0; right: 0;
+    bottom: 0;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.45s cubic-bezier(0.65,0,0.35,1);
+    will-change: transform;
+  }
+  .slide {
+    min-width: 100vw;
+    width: 100vw;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+
+  /* ── SLIDE DOTS ── */
+  .dots {
+    position: fixed;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex; gap: 8px; z-index: 300;
+  }
+  .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(124,58,237,0.25); cursor: pointer;
+    transition: all 0.25s;
+    border: none; padding: 0;
+  }
+  .dot.active { width: 24px; border-radius: 4px; background: var(--purple); }
+
+
+  /* ── PREV/NEXT ARROWS ── */
+  .arrow {
+    position: fixed; top: 50%; transform: translateY(-50%);
+    z-index: 250; width: 44px; height: 44px; border-radius: 50%;
+    background: rgba(255,255,255,0.9); border: none; cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    font-size: 1.2rem; display: flex; align-items: center; justify-content: center;
+    transition: transform 0.15s, box-shadow 0.15s, opacity 0.2s;
+    color: var(--purple);
+  }
+  .arrow:hover { transform: translateY(-50%) scale(1.08); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+  .arrow.prev { left: 12px; }
+  .arrow.next { right: 12px; }
+  .arrow.hidden { opacity: 0; pointer-events: none; }
+
+
+  /* ── SLIDE INNER PADDING ── */
+  .slide-inner { padding: 40px 2rem 60px; max-width: 1080px; margin: 0 auto; }
+
+
+  /* ── HERO ── */
+  #slide-0 {
+    background: linear-gradient(135deg, #4C1D95 0%, #7C3AED 35%, #EC4899 70%, #F97316 100%);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: flex-start;
+    text-align: center; padding: 60px 2rem 80px;
+    position: relative; overflow-y: auto; overflow-x: hidden;
+  }
+  .bubble {
+    position: absolute; border-radius: 50%; opacity: 0.15;
+    animation: float 6s ease-in-out infinite;
+  }
+  .b1{width:180px;height:180px;background:#FBBF24;top:8%;left:5%;animation-delay:0s;}
+  .b2{width:120px;height:120px;background:#EC4899;top:15%;right:8%;animation-delay:1.5s;}
+  .b3{width:90px;height:90px;background:#10B981;bottom:20%;left:10%;animation-delay:3s;}
+  .b4{width:150px;height:150px;background:#3B82F6;bottom:10%;right:5%;animation-delay:2s;}
+  .b5{width:60px;height:60px;background:#fff;top:50%;left:2%;animation-delay:4s;}
+  @keyframes float{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-20px) scale(1.05);}}
+  .hero-stars{font-size:2.5rem;margin-bottom:1rem;animation:spin 20s linear infinite;display:inline-block;}
+  @keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+  .hero-badge{
+    display:inline-block;background:rgba(255,255,255,0.2);border:2px solid rgba(255,255,255,0.4);
+    border-radius:50px;padding:0.4rem 1.2rem;font-family:'Nunito',sans-serif;font-weight:800;
+    font-size:0.85rem;color:#fff;letter-spacing:1px;text-transform:uppercase;margin-bottom:1.2rem;
+  }
+  .hero h1{
+    font-family:'Nunito',sans-serif;font-weight:900;
+    font-size:clamp(2.8rem,7vw,5rem);color:#fff;line-height:1.05;letter-spacing:-2px;margin-bottom:0.5rem;
+  }
+  .hero h1 .highlight{
+    background:linear-gradient(90deg,#FBBF24,#F97316);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  }
+  .hero-sub{font-size:1.15rem;color:rgba(255,255,255,0.85);max-width:560px;line-height:1.75;margin-bottom:0.8rem;}
+  .hero-quote{font-family:'Nunito',sans-serif;font-weight:800;font-size:1.1rem;color:var(--yellow);margin-bottom:2rem;font-style:italic;}
+  .btn-group{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;}
+  .btn{
+    display:inline-flex;align-items:center;gap:0.4rem;padding:0.9rem 2rem;border-radius:50px;
+    font-family:'Nunito',sans-serif;font-weight:900;font-size:1rem;
+    text-decoration:none;border:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;
+  }
+  .btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,0.25);}
+  .btn-primary{background:linear-gradient(90deg,#FBBF24,#F97316);color:#fff;}
+  .btn-secondary{background:rgba(255,255,255,0.15);color:#fff;border:2px solid rgba(255,255,255,0.4);}
+  .hero-emojis{margin-top:2rem;font-size:2.2rem;letter-spacing:10px;opacity:0.7;}
+
+
+  /* goals strip inside hero */
+  .goals-strip{
+    background:rgba(0,0,0,0.2);border-radius:20px;padding:1.5rem;margin-top:2rem;width:100%;max-width:680px;
+  }
+  .goals-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:0.8rem;
+  }
+  .goal-item{
+    background:rgba(255,255,255,0.15);border-radius:14px;
+    padding:1rem 0.8rem;text-align:center;border:2px solid rgba(255,255,255,0.2);
+    transition:transform 0.2s;cursor:pointer;
+  }
+  .goal-item:hover{transform:translateY(-3px);background:rgba(255,255,255,0.25);}
+  .goal-icon{font-size:1.8rem;display:block;margin-bottom:0.4rem;}
+  .goal-label{font-family:'Nunito',sans-serif;font-weight:800;font-size:0.82rem;color:#fff;}
+  .goal-sub{display:block;font-size:0.68rem;font-family:'Nunito',sans-serif;font-weight:700;color:rgba(255,255,255,0.65);margin-top:0.15rem;}
+
+
+  /* ── SECTION HEADERS (shared) ── */
+  .section-eyebrow{
+    display:inline-block;font-family:'Nunito',sans-serif;font-weight:800;
+    font-size:0.78rem;letter-spacing:2.5px;text-transform:uppercase;
+    padding:0.3rem 1rem;border-radius:50px;margin-bottom:0.75rem;
+  }
+  .section-title{
+    font-family:'Nunito',sans-serif;font-weight:900;
+    font-size:clamp(1.7rem,3.5vw,2.4rem);line-height:1.1;margin-bottom:0.8rem;
+  }
+  .section-intro{font-size:1rem;color:var(--text-mid);line-height:1.8;max-width:640px;margin-bottom:2rem;}
+
+
+  /* ── SLIDE 1 — CHALLENGES ── */
+  #slide-1 { background: #fff; }
+  .weeks-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;}
+  .week-card{
+    border-radius:var(--radius);padding:1.5rem;border:2.5px solid transparent;
+    transition:transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden;
+  }
+  .week-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,0.1);}
+  .week-card::after{content:'';position:absolute;bottom:-20px;right:-20px;width:80px;height:80px;border-radius:50%;opacity:0.15;}
+  .wk1{background:#FFF0F9;border-color:#F9A8D4;}.wk1::after{background:#EC4899;}
+  .wk2{background:#EFF6FF;border-color:#BFDBFE;}.wk2::after{background:#3B82F6;}
+  .wk3{background:#ECFDF5;border-color:#A7F3D0;}.wk3::after{background:#10B981;}
+  .wk4{background:#FFF7ED;border-color:#FED7AA;}.wk4::after{background:#F97316;}
+  .wk5{background:#F5F3FF;border-color:#C4B5FD;}.wk5::after{background:#7C3AED;}
+  .wk6{background:#FFFBEB;border-color:#FDE68A;}.wk6::after{background:#FBBF24;}
+  .week-emoji{font-size:2.2rem;margin-bottom:0.4rem;display:block;}
+  .week-num{font-family:'Nunito',sans-serif;font-weight:900;font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;opacity:0.5;margin-bottom:0.2rem;}
+  .week-title{font-family:'Nunito',sans-serif;font-weight:900;font-size:1.15rem;color:var(--text-dark);margin-bottom:0.9rem;}
+  .task-list{list-style:none;display:flex;flex-direction:column;gap:0.6rem;}
+  .task-list li{display:flex;align-items:flex-start;gap:0.6rem;font-size:0.9rem;color:var(--text-mid);line-height:1.5;}
+  .task-list input[type="checkbox"]{width:18px;height:18px;flex-shrink:0;margin-top:2px;cursor:pointer;accent-color:var(--purple);}
+  .submit-week-btn{
+    width:100%;padding:0.7rem 1rem;background:linear-gradient(90deg,#7C3AED,#EC4899);
+    color:#fff;border:none;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:900;
+    font-size:0.9rem;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;animation:popIn 0.35s ease;
+  }
+  .submit-week-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(124,58,237,0.35);}
+  @keyframes popIn{from{opacity:0;transform:scale(0.85);}to{opacity:1;transform:scale(1);}}
+  .week-card.all-done{box-shadow:0 0 0 3px #10B981;}
+
+
+  /* ── SLIDE 2 — PLATFORMS ── */
+  #slide-2{background:linear-gradient(180deg,#F5F3FF 0%,#fff 100%);}
+  .platforms-tabs{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.5rem;}
+  .tab-btn{
+    padding:0.45rem 1rem;border-radius:50px;border:2.5px solid #E5E7EB;background:#fff;
+    color:var(--text-mid);font-family:'Nunito',sans-serif;font-weight:800;font-size:0.83rem;
+    cursor:pointer;transition:all 0.2s;
+  }
+  .tab-btn:hover{border-color:var(--purple);color:var(--purple);}
+  .tab-btn.active{background:var(--purple);color:#fff;border-color:var(--purple);}
+  .tab-content{display:none;}
+  .tab-content.active{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.1rem;}
+  .platform-card{
+    background:#fff;border-radius:var(--radius);padding:1.4rem;border:2px solid #F3F4F6;
+    transition:transform 0.2s,box-shadow 0.2s,border-color 0.2s;display:flex;flex-direction:column;
+  }
+  .platform-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.1);border-color:var(--purple-light);}
+  .platform-icon{font-size:2rem;margin-bottom:0.5rem;}
+  .platform-name{font-family:'Nunito',sans-serif;font-weight:900;font-size:1rem;color:var(--text-dark);margin-bottom:0.35rem;}
+  .platform-desc{font-size:0.88rem;color:var(--text-mid);line-height:1.6;flex:1;}
+  .platform-footer{display:flex;align-items:center;justify-content:space-between;margin-top:0.9rem;}
+  .platform-tag{padding:0.22rem 0.7rem;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.73rem;background:var(--green-pale);color:var(--green);}
+  .platform-link{
+    display:inline-flex;align-items:center;gap:0.3rem;padding:0.38rem 0.9rem;border-radius:50px;
+    background:linear-gradient(90deg,var(--purple),var(--pink));color:#fff;text-decoration:none;
+    font-family:'Nunito',sans-serif;font-weight:800;font-size:0.8rem;transition:transform 0.15s,box-shadow 0.15s;
+  }
+  .platform-link:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(124,58,237,0.35);}
+
+
+  /* ── SLIDE 3 — BINGO ── */
+  #slide-3{background:linear-gradient(135deg,#FFFBEB,#FFF0F9,#EFF6FF);}
+  .bingo-tabs{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.2rem;}
+  .bingo-card{display:none;border-radius:var(--radius);overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.1);}
+  .bingo-card.active{display:block;}
+  .bingo-header{padding:1.1rem 1.4rem;text-align:center;font-family:'Nunito',sans-serif;font-weight:900;font-size:1.2rem;color:#fff;}
+  .bh-read{background:linear-gradient(90deg,#EC4899,#F97316);}
+  .bh-sci{background:linear-gradient(90deg,#10B981,#3B82F6);}
+  .bh-math{background:linear-gradient(90deg,#7C3AED,#EC4899);}
+  .bingo-grid{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;}
+  .bingo-cell{
+    padding:0.9rem 0.6rem;border:1.5px solid #F3F4F6;text-align:center;font-size:0.84rem;
+    color:var(--text-mid);line-height:1.45;cursor:pointer;min-height:88px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.25rem;
+    transition:background 0.15s,color 0.15s;font-family:'Nunito',sans-serif;font-weight:700;
+  }
+  .bingo-cell .cell-emoji{font-size:1.5rem;}
+  .bingo-cell:hover{background:var(--purple-pale);}
+  .bingo-cell.marked{background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;border-color:transparent;}
+
+
+  /* ── SLIDE 4 — LOG ── */
+  #slide-4{background:#fff;}
+  .log-table{width:100%;border-collapse:collapse;font-size:0.86rem;border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.07);}
+  .log-table thead{background:linear-gradient(90deg,var(--purple),var(--pink));}
+  .log-table th{padding:0.9rem 0.7rem;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.8rem;color:#fff;text-align:left;}
+  .log-table td{padding:0.8rem 0.65rem;border-bottom:1.5px solid #F3F4F6;}
+  .log-table tr:hover td{background:#FAFAFA;}
+  .log-table input{
+    width:100%;border:1.5px solid #E5E7EB;border-radius:8px;padding:0.38rem 0.45rem;
+    font-size:0.81rem;font-family:inherit;color:var(--text-dark);outline:none;
+    transition:border-color 0.2s;background:#FAFAFA;
+  }
+  .log-table input:focus{border-color:var(--purple);background:#fff;}
+  .log-submit-btn{
+    padding:0.42rem 0.9rem;background:linear-gradient(90deg,#7C3AED,#EC4899);
+    color:#fff;border:none;border-radius:50px;font-family:'Nunito',sans-serif;
+    font-weight:800;font-size:0.78rem;cursor:pointer;white-space:nowrap;transition:transform 0.15s;
+  }
+  .log-submit-btn:hover{transform:translateY(-1px);}
+
+
+  /* ── SLIDE 5 — CERTIFICATE ── */
+  #slide-5{background:linear-gradient(135deg,#4C1D95,#7C3AED,#EC4899);position:relative;overflow-y:auto;overflow-x:hidden;}
+  #slide-5::before{
+    content:'🌟⭐🌟⭐🌟⭐🌟⭐🌟⭐🌟⭐🌟⭐🌟';
+    position:absolute;top:1rem;left:0;right:0;font-size:1.5rem;opacity:0.12;
+    letter-spacing:8px;white-space:nowrap;overflow:hidden;pointer-events:none;
+  }
+  .cert-wrap{max-width:760px;margin:0 auto;}
+  .cert-box{background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,0.3);position:relative;}
+  .cert-rainbow{height:10px;background:linear-gradient(90deg,#EF4444,#F97316,#FBBF24,#10B981,#3B82F6,#7C3AED,#EC4899);}
+  .cert-inner{padding:2.2rem 2.5rem 2.5rem;border:8px solid transparent;background-clip:padding-box;position:relative;}
+  .cert-corner{position:absolute;font-size:2.2rem;line-height:1;}
+  .cert-corner.tl{top:1rem;left:1.2rem;}
+  .cert-corner.tr{top:1rem;right:1.2rem;}
+  .cert-corner.bl{bottom:1rem;left:1.2rem;}
+  .cert-corner.br{bottom:1rem;right:1.2rem;}
+  .cert-school{font-family:'Nunito',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:2px;text-transform:uppercase;color:var(--purple);margin-bottom:0.3rem;}
+  .cert-award-title{
+    font-family:'Nunito',sans-serif;font-weight:900;font-size:clamp(1.3rem,3.5vw,2rem);
+    background:linear-gradient(90deg,var(--purple),var(--pink));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+    margin-bottom:0.3rem;line-height:1.2;
+  }
+  .cert-divider{display:flex;align-items:center;gap:1rem;margin:0.8rem auto;max-width:400px;}
+  .cert-divider-line{flex:1;height:1.5px;background:linear-gradient(90deg,transparent,#DDD,transparent);}
+  .cert-divider-star{font-size:1.3rem;}
+  .cert-presented{font-size:0.92rem;color:var(--text-light);margin-bottom:0.3rem;}
+  .cert-name-input{
+    display:block;margin:0 auto 0.5rem;width:100%;max-width:340px;
+    border:none;border-bottom:2.5px solid var(--purple);text-align:center;
+    font-family:'Nunito',sans-serif;font-weight:900;font-size:1.4rem;color:var(--purple);
+    outline:none;background:transparent;padding:0.3rem;
+  }
+  .cert-name-input::placeholder{color:#DDD;font-weight:400;font-size:1.05rem;}
+  .cert-body-text{font-size:0.92rem;color:var(--text-mid);line-height:1.8;max-width:460px;margin:0.8rem auto 0.5rem;}
+  .cert-year-badge{
+    display:inline-block;background:linear-gradient(90deg,var(--yellow),var(--orange));
+    color:#fff;font-family:'Nunito',sans-serif;font-weight:900;font-size:0.95rem;
+    padding:0.28rem 1.1rem;border-radius:50px;margin:0.4rem auto 1.2rem;
+  }
+  .cert-medal{font-size:3rem;display:block;margin:0.3rem auto;animation:bounce 2s ease-in-out infinite;}
+  @keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+  .cert-sigs{
+    display:flex;justify-content:space-around;gap:2rem;flex-wrap:wrap;
+    margin-top:1.5rem;padding-top:1.2rem;border-top:1.5px dashed #E5E7EB;
+  }
+  .cert-sig{text-align:center;}
+  .cert-sig-line{width:150px;height:1.5px;background:var(--text-dark);margin:0 auto 0.35rem;}
+  .cert-sig-label{font-size:0.78rem;color:var(--text-light);font-family:'Nunito',sans-serif;font-weight:700;}
+  .cert-actions{margin-top:1.5rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+  .cert-btn{
+    padding:0.7rem 1.8rem;border-radius:50px;border:none;font-family:'Nunito',sans-serif;
+    font-weight:800;font-size:0.95rem;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;
+  }
+  .cert-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.15);}
+  .cert-btn-print{background:linear-gradient(90deg,var(--purple),var(--pink));color:#fff;}
+  .cert-btn-dl{background:var(--yellow);color:#fff;}
+
+
+  /* ── MODAL ── */
+  #modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:500;backdrop-filter:blur(4px);}
+  #modal-box{
+    display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0.92);
+    z-index:600;width:min(95vw,680px);max-height:85vh;overflow-y:auto;border-radius:24px;
+    background:#fff;box-shadow:0 32px 80px rgba(0,0,0,0.3);
+    transition:transform 0.25s ease,opacity 0.25s ease;opacity:0;
+  }
+  #modal-header{padding:1.4rem 1.4rem 0;position:sticky;top:0;background:#fff;z-index:1;border-radius:24px 24px 0 0;}
+  .res-card{
+    display:flex;align-items:center;gap:1rem;background:#FAFAFA;border:1.5px solid #F3F4F6;
+    border-radius:14px;padding:1rem 1.2rem;margin-bottom:0.8rem;text-decoration:none;color:inherit;
+    transition:transform 0.15s,box-shadow 0.15s,border-color 0.15s;
+  }
+  .res-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.1);border-color:var(--purple-light);}
+  .res-icon{font-size:2rem;flex-shrink:0;}
+  .res-info{flex:1;}
+  .res-name{font-family:'Nunito',sans-serif;font-weight:900;font-size:1rem;color:#1E1B4B;margin-bottom:0.15rem;}
+  .res-desc{font-size:0.85rem;color:#6B7280;line-height:1.45;}
+  .res-arrow{font-size:1.2rem;color:#A78BFA;font-weight:900;flex-shrink:0;}
+  .res-tag{display:inline-block;padding:0.18rem 0.6rem;border-radius:50px;font-size:0.7rem;font-family:'Nunito',sans-serif;font-weight:800;margin-top:0.3rem;}
+  .tag-free{background:#ECFDF5;color:#059669;}
+  .tag-read{background:#FFF0F9;color:#EC4899;}
+  .tag-game{background:#EFF6FF;color:#3B82F6;}
+
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:1100px){
+    .top-nav{padding:0 1rem;}
+    .top-nav ul{gap:0.3rem;}
+    .top-nav ul button{font-size:0.72rem;padding:0.28rem 0.65rem;}
+    .nav-logo{font-size:0.95rem;}
+  }
+  @media(max-width:768px){
+    .top-nav ul{display:none;}
+    .arrow{width:36px;height:36px;font-size:1rem;}
+    .bingo-grid{grid-template-columns:repeat(2,1fr);}
+    .cert-inner{padding:1.4rem 1.1rem 1.8rem;}
+    .cert-corner{font-size:1.7rem;}
+    .cert-sigs{flex-direction:column;align-items:center;}
+    .log-table{font-size:0.74rem;}
+    .log-table th,.log-table td{padding:0.45rem 0.3rem;}
+    .weeks-grid{grid-template-columns:1fr;}
+    .goals-grid{grid-template-columns:repeat(3,1fr);}
+    .dots{bottom:8px;}
+  }
+  @media(max-width:400px){
+    .goals-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media print{
+    .top-nav,.dots,.arrow,#slide-0,#slide-1,#slide-2,#slide-3,#slide-4{display:none!important;}
+    html,body{overflow:visible!important;height:auto!important;}
+    .carousel-track-outer,.carousel-track{overflow:visible!important;position:static!important;display:block!important;}
+    .slide{min-width:unset!important;width:100%!important;height:auto!important;overflow:visible!important;}
+    #slide-5{display:block!important;background:white!important;}
+    .cert-box{box-shadow:none!important;}
+    .cert-actions,#slide-5::before{display:none!important;}
+    .cert-name-input{border-bottom:2px solid #999!important;}
+  }
+</style>
+</head>
+<body>
+
+
+<!-- TOP NAV -->
+<nav class="top-nav">
+  <div class="nav-logo">☀️ Summer Learning Adventure</div>
+  <ul>
+    <li><button onclick="goTo(0)" class="active" id="nav-0">🏠 Home</button></li>
+    <li><button onclick="goTo(1)" id="nav-1">🗓️ Challenges</button></li>
+    <li><button onclick="goTo(2)" id="nav-2">🌐 Resources</button></li>
+    <li><button onclick="goTo(3)" id="nav-3">🎲 Bingo</button></li>
+    <li><button onclick="goTo(4)" id="nav-4">📝 My Log</button></li>
+    <li><button onclick="goTo(5)" id="nav-5">🏆 Certificate</button></li>
+  </ul>
+</nav>
+
+
+<!-- PREV / NEXT ARROWS -->
+<button class="arrow prev hidden" id="arrowPrev" onclick="goTo(currentSlide-1)">&#8592;</button>
+<button class="arrow next" id="arrowNext" onclick="goTo(currentSlide+1)">&#8594;</button>
+
+
+<!-- CAROUSEL -->
+<div class="carousel-track-outer">
+  <div class="carousel-track" id="track">
+
+
+    <!-- SLIDE 0: HERO -->
+    <div class="slide" id="slide-0">
+      <div class="bubble b1"></div><div class="bubble b2"></div>
+      <div class="bubble b3"></div><div class="bubble b4"></div><div class="bubble b5"></div>
+      <span class="hero-stars">🌟</span>
+      <div class="hero-badge">Grades 1 &amp; 2 · Summer 2026</div>
+      <h1 class="hero">Summer Learning<br><span class="highlight">Adventure!</span></h1>
+      <p class="hero-sub">A fun-packed guide for curious young minds — read, explore, create, and discover the amazing world around you this summer!</p>
+      <p class="hero-quote">"Learn, Explore, Create, and Have Fun!"</p>
+      <div class="btn-group">
+        <button onclick="goTo(1)" class="btn btn-primary">🗓️ Start the Challenges</button>
+        <button onclick="goTo(5)" class="btn btn-secondary">🏆 Get My Certificate</button>
+      </div>
+      <div class="hero-emojis">🎨 📚 🔬 💻 🤖 🎲</div>
+      <div class="goals-strip" style="margin-top:2rem;">
+        <p style="text-align:center;font-family:'Nunito',sans-serif;font-weight:900;font-size:0.85rem;color:rgba(255,255,255,0.7);letter-spacing:2px;text-transform:uppercase;margin-bottom:1rem;">👇 Tap any topic to explore activities!</p>
+        <div class="goals-grid">
+          <div class="goal-item" onclick="openModal('reading')"><span class="goal-icon">📚</span><span class="goal-label">Read Every Day</span><span class="goal-sub">5 Passages</span></div>
+          <div class="goal-item" onclick="openModal('maths')"><span class="goal-icon">🔢</span><span class="goal-label">Practice Maths</span><span class="goal-sub">5 Games</span></div>
+          <div class="goal-item" onclick="openModal('science')"><span class="goal-icon">🔬</span><span class="goal-label">Explore Science</span><span class="goal-sub">5 Games</span></div>
+          <div class="goal-item" onclick="openModal('coding')"><span class="goal-icon">💻</span><span class="goal-label">Learn Coding</span><span class="goal-sub">5 Activities</span></div>
+          <div class="goal-item" onclick="openModal('ai')"><span class="goal-icon">🤖</span><span class="goal-label">Discover AI</span><span class="goal-sub">5 Activities</span></div>
+          <div class="goal-item" onclick="openModal('safety')"><span class="goal-icon">🛡️</span><span class="goal-label">Stay Safe Online</span><span class="goal-sub">5 Activities</span></div>
+          <div class="goal-item" onclick="openModal('canva')"><span class="goal-icon">🎨</span><span class="goal-label">Create with Canva</span><span class="goal-sub">5 Projects</span></div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- SLIDE 1: CHALLENGES -->
+    <div class="slide" id="slide-1">
+      <div class="slide-inner">
+        <p class="section-eyebrow" style="background:#FFF0F9;color:#EC4899;">📅 6-Week Plan</p>
+        <h2 class="section-title">Weekly Summer Challenges</h2>
+        <p class="section-intro">Tick off each activity as you go! When all tasks in a week are ticked, a <strong>✉️ Send to Teacher</strong> button appears. 🎉</p>
+
+
+        <div id="locked-banner" style="display:none;background:linear-gradient(90deg,#7C3AED,#EC4899);border-radius:16px;padding:1.4rem 1.8rem;margin-bottom:1.8rem;text-align:center;color:#fff;">
+          <p style="font-family:'Nunito',sans-serif;font-weight:900;font-size:1.15rem;">⏳ Challenges unlock on 20 June 2026!</p>
+          <p style="opacity:0.85;margin-top:0.4rem;font-size:0.9rem;">Get ready — the Summer Learning Adventure starts soon! 🌟</p>
+        </div>
+
+
+        <div class="weeks-grid">
+          <div class="week-card wk1" data-week="1" data-week-name="Week 1 Reading Explorer">
+            <span class="week-emoji">📚</span>
+            <p class="week-num">Week 1 · From 20 Jun</p>
+            <p class="week-title">Reading Explorer</p>
+            <ul class="task-list">
+              <li><input type="checkbox" class="week-task" onchange="checkWeekComplete(this)"><span><strong>Daily Reading:</strong> Read a storybook for 15 minutes every day.</span></li>
+              <li><input type="checkbox" class="week-task" onchange="checkWeekComplete(this)"><span><strong>Word Power:</strong> Find and write down 5 brand-new words you learned this week.</span></li>
+              <li><input type="checkbox" class="week-task" onchange="checkWeekComplete(this)"><span><strong>Art Studio:</strong> Draw your favourite character from a story you read.</span></li>
+            </ul>
+            <div class="submit-btn-wrap" style="display:none;margin-top:1rem;"><button class="submit-week-btn" onclick="submitWeek(this)">✉️ All done! Send to Teacher</button></div>
+            <div class="submitted-badge" style="display:none;margin-top:0.8rem;font-family:'Nunito',sans-serif;font-weight:800;color:#10B981;font-size:0.9rem;">✅ Submitted to Teacher!</div>
+          </div>
+          <div class="week-card wk2" data-week="2" data-week-name="Week 2 Math Detective">
+            <span class="week-emoji">🔢</span>
+            <p class="week-num">Week 2 · From 27 Jun</p>
+            <p class="week-title">Maths Detective</p>
+            <ul class="task-list">
+              <li><input type="checkbox" class="week-task" onchange="checkWeekComplete(this)"><span><strong>Shape Hunter:</strong> Find 3 dimensional shapes around your room!</span></li>
+              <li><input type="checkbox" class="week-task" onchange="checkWeekComplete(this)"><span><strong>Market Maths:</strong> Count small change or add numbers on a grocery receipt with a parent.</span></li>
+              <li><input type="checkbox" class="week-task" onchange="checkWeekComplete(this)"><span><strong>Pattern Power:</strong> Spot or draw repeating patterns around your home.</span></li>
+            </ul>
+            <div class="submit-btn-wrap" style="display:none;margin-top:1rem;"><button class="submit-week-btn" onclick="submitWeek(this)">✉️ All done! Send to Teacher</button></div>
+            <div class="submitted-badge" style="display:none;margin-top:0.8rem;font-family:'Nunito',sans-serif;font-weight:800;color:#10B981;font-size:0.9rem;">✅ Submitted to Teacher!</div>
+          </div>
+          <div class="week-card wk3" data-week="3" data-week-name="Week 3 Science Explorer">
+            <span class="week-emoji">🌿</span>
+            <p class="week-num">Week 3 · From 4 Jul</p>
+            <p class="week-title">Science Explorer</p>
+            <ul class="task-list">
+              <li><input type="checkbox" class="week-task" onchange="checkWeekComplete(this)"><span><strong>Nature Watch:</strong> Observe a local tree for 10 minutes. Draw its leaves!</span></li>
+              <li><input type="checkbox" class="week-task" onchange="checkWeekComplete(this)"><span><strong>Weather Log:</strong> Track the weather for 5 days — sunny, windy, or cloudy?</span></li>
+              <li><input type="checkbox" class="week-task" onchange="checkWeekComplete(this)"><span><strong>Kitchen Science:</strong> Drop objects in water with a parent. Sink or float?</span></li>
+            </ul>
+            <div class="submit-btn-wrap" style="display:none;margin-top:1rem;"><button class="submit-week-btn" onclick="submitWeek(this)">✉️ All done! Send to Teacher</button></div>
+            <div class="submitted-badge" style="display:none;margin-top:0.8rem;font-family:'Nunito',sans-serif;font-weight:800;color:#10B981;font-size:0.9rem;">✅ Submitted to Teacher!</div>
+          </div>
+          <div class="week-card wk4" data-week="4" data-week-name="Week 4 Young Inventor">
+            <span class="week-emoji">🛠️</span>
+            <p class="week-num">Week 4 · From 11 Jul</p>
+            <p class="week-title">Young Inventor</p>
+            <ul class="task-list">
+              <li><input type="checkbox" class="week-task" onchange="checkWeekComplete(this)"><span><strong>Recycle Challenge:</strong> Collect clean cardboard, bottle caps, and boxes. Build a model fort or robot!</span></li>
+              <li><input type="checkbox" class="week-task" onchange="checkWeekComplete(this)"><span><strong>Show &amp; Tell:</strong> Explain to a family member how your invention works.</span></li>
+            </ul>
+            <div class="submit-btn-wrap" style="display:none;margin-top:1rem;"><button class="submit-week-btn" onclick="submitWeek(this)">✉️ All done! Send to Teacher</button></div>
+            <div class="submitted-badge" style="display:none;margin-top:0.8rem;font-family:'Nunito',sans-serif;font-weight:800;color:#10B981;font-size:0.9rem;">✅ Submitted to Teacher!</div>
+          </div>
+          <div class="week-card wk5" data-week="5" data-week-name="Week 5 Coding Fun">
+            <span class="week-emoji">👾</span>
+            <p class="week-num">Week 5 · From 18 Jul</p>
+            <p class="week-title">Coding Fun</p>
+            <ul class="task-list">
+              <li><input type="checkbox" class="week-task" onchange="checkWeekComplete(this)"><span><strong>Logic Step:</strong> Complete a beginner puzzle using direction arrows on a screen.</span></li>
+              <li><input type="checkbox" class="week-task" onchange="checkWeekComplete(this)"><span><strong>Dance Party:</strong> Use forward, backward, left, and right moves to make a character dance!</span></li>
+            </ul>
+            <div class="submit-btn-wrap" style="display:none;margin-top:1rem;"><button class="submit-week-btn" onclick="submitWeek(this)">✉️ All done! Send to Teacher</button></div>
+            <div class="submitted-badge" style="display:none;margin-top:0.8rem;font-family:'Nunito',sans-serif;font-weight:800;color:#10B981;font-size:0.9rem;">✅ Submitted to Teacher!</div>
+          </div>
+          <div class="week-card wk6" data-week="6" data-week-name="Week 6 AI and Robotics Explorer">
+            <span class="week-emoji">🤖</span>
+            <p class="week-num">Week 6 · From 25 Jul</p>
+            <p class="week-title">AI &amp; Robotics Explorer</p>
+            <ul class="task-list">
+              <li><input type="checkbox" class="week-task" onchange="checkWeekComplete(this)"><span><strong>Robot Chat:</strong> Discuss with your parents how robots help humans — farming, cars, and vacuum cleaners!</span></li>
+              <li><input type="checkbox" class="week-task" onchange="checkWeekComplete(this)"><span><strong>Smart Tools:</strong> Explore a safe image-recognition game with a parent to see how computers "see".</span></li>
+            </ul>
+            <div class="submit-btn-wrap" style="display:none;margin-top:1rem;"><button class="submit-week-btn" onclick="submitWeek(this)">✉️ All done! Send to Teacher</button></div>
+            <div class="submitted-badge" style="display:none;margin-top:0.8rem;font-family:'Nunito',sans-serif;font-weight:800;color:#10B981;font-size:0.9rem;">✅ Submitted to Teacher!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- SLIDE 2: PLATFORMS -->
+    <div class="slide" id="slide-2">
+      <div class="slide-inner">
+        <p class="section-eyebrow" style="background:var(--purple-pale);color:var(--purple);">🌐 Free Resources</p>
+        <h2 class="section-title">Learning Platforms</h2>
+        <p class="section-intro">All platforms are completely <strong>free</strong>, safe, and designed for young learners. Click <strong>Visit →</strong> to open any site!</p>
+        <div class="platforms-tabs">
+          <button class="tab-btn active" onclick="showTab(event,'english')">🇬🇧 English</button>
+          <button class="tab-btn" onclick="showTab(event,'math')">🧮 Maths</button>
+          <button class="tab-btn" onclick="showTab(event,'science')">🚀 Science</button>
+          <button class="tab-btn" onclick="showTab(event,'coding')">💻 Coding</button>
+          <button class="tab-btn" onclick="showTab(event,'ai')">🤖 AI for Kids</button>
+          <button class="tab-btn" onclick="showTab(event,'parents')">🎓 Parents</button>
+        </div>
+        <div id="tab-english" class="tab-content active">
+          <div class="platform-card"><div class="platform-icon">🇬🇧</div><div class="platform-name">British Council LearnEnglish Kids</div><div class="platform-desc">Animated stories, catchy songs, reading activities, and vocabulary games — perfect for young learners aged 5–12.</div><div class="platform-footer"><span class="platform-tag">✅ Free</span><a class="platform-link" href="https://learnenglishkids.britishcouncil.org" target="_blank">Visit →</a></div></div>
+          <div class="platform-card"><div class="platform-icon">⭐</div><div class="platform-name">Starfall</div><div class="platform-desc">An excellent tool for foundational phonics and early sentence reading through colourful interactive stories.</div><div class="platform-footer"><span class="platform-tag">✅ Free</span><a class="platform-link" href="https://www.starfall.com" target="_blank">Visit →</a></div></div>
+          <div class="platform-card"><div class="platform-icon">📖</div><div class="platform-name">Oxford Owl</div><div class="platform-desc">A free online library of engaging e-books sorted by age and reading level — great for bedtime reading too!</div><div class="platform-footer"><span class="platform-tag">✅ Free</span><a class="platform-link" href="https://www.oxfordowl.co.uk/for-home/find-a-book/library-page" target="_blank">Visit →</a></div></div>
+        </div>
+        <div id="tab-math" class="tab-content">
+          <div class="platform-card"><div class="platform-icon">🧮</div><div class="platform-name">Khan Academy Kids</div><div class="platform-desc">100% free, no ads, no subscriptions. Packed with maths games, reading paths, and logic puzzles kids love.</div><div class="platform-footer"><span class="platform-tag">✅ Free · No Ads</span><a class="platform-link" href="https://www.khanacademy.org/kids" target="_blank">Visit →</a></div></div>
+          <div class="platform-card"><div class="platform-icon">💧</div><div class="platform-name">SplashLearn</div><div class="platform-desc">Highly interactive maths practice that turns curriculum targets into fun, kid-friendly rewards and games.</div><div class="platform-footer"><span class="platform-tag">✅ Free</span><a class="platform-link" href="https://www.splashlearn.com" target="_blank">Visit →</a></div></div>
+        </div>
+        <div id="tab-science" class="tab-content">
+          <div class="platform-card"><div class="platform-icon">🚀</div><div class="platform-name">NASA Climate Kids</div><div class="platform-desc">Interactive learning on space science, planet Earth, weather patterns, and environmental care. Straight from NASA!</div><div class="platform-footer"><span class="platform-tag">✅ Free</span><a class="platform-link" href="https://climatekids.nasa.gov" target="_blank">Visit →</a></div></div>
+          <div class="platform-card"><div class="platform-icon">🌍</div><div class="platform-name">National Geographic Kids</div><div class="platform-desc">Safe videos, animal quizzes, and science facts designed to spark curiosity about the amazing natural world.</div><div class="platform-footer"><span class="platform-tag">✅ Free</span><a class="platform-link" href="https://kids.nationalgeographic.com" target="_blank">Visit →</a></div></div>
+        </div>
+        <div id="tab-coding" class="tab-content">
+          <div class="platform-card"><div class="platform-icon">🐱</div><div class="platform-name">ScratchJr</div><div class="platform-desc">Snap colourful programming blocks to make characters move, jump, dance, and sing. Perfect for Grade 1 learners!</div><div class="platform-footer"><span class="platform-tag">✅ Free · Ages 5–7</span><a class="platform-link" href="https://www.scratchjr.org" target="_blank">Visit →</a></div></div>
+          <div class="platform-card"><div class="platform-icon">😸</div><div class="platform-name">Scratch</div><div class="platform-desc">Build richer custom games and animations. Best for advanced Grade 2 learners — great fun with a parent!</div><div class="platform-footer"><span class="platform-tag">✅ Free · Grade 2+</span><a class="platform-link" href="https://scratch.mit.edu" target="_blank">Visit →</a></div></div>
+          <div class="platform-card"><div class="platform-icon">🏁</div><div class="platform-name">Code.org</div><div class="platform-desc">Start with Course A (Grade 1) or Course B (Grade 2). Fun puzzles with familiar characters and free printable certificates!</div><div class="platform-footer"><span class="platform-tag">✅ Free · Certificate</span><a class="platform-link" href="https://code.org/learn" target="_blank">Visit →</a></div></div>
+        </div>
+        <div id="tab-ai" class="tab-content">
+          <div class="platform-card"><div class="platform-icon">🧠</div><div class="platform-name">Teachable Machine</div><div class="platform-desc">Wave your hand or show a toy to train a simple AI model. Kids discover how computers learn to recognise objects. Parent supervision required.</div><div class="platform-footer"><span class="platform-tag">✅ Free · Supervised</span><a class="platform-link" href="https://teachablemachine.withgoogle.com" target="_blank">Visit →</a></div></div>
+          <div class="platform-card"><div class="platform-icon">🎨</div><div class="platform-name">Google Arts &amp; Culture</div><div class="platform-desc">Explore global museums, historic landmarks, and turn your doodles into classic artwork styles using smart AI filters!</div><div class="platform-footer"><span class="platform-tag">✅ Free</span><a class="platform-link" href="https://artsandculture.google.com" target="_blank">Visit →</a></div></div>
+        </div>
+        <div id="tab-parents" class="tab-content">
+          <div class="platform-card"><div class="platform-icon">🛠️</div><div class="platform-name">Google Digital Garage</div><div class="platform-desc">Practical digital literacy skills, online safety principles, and home productivity tools. Earn a free certificate!</div><div class="platform-footer"><span class="platform-tag">✅ Free · Certificate</span><a class="platform-link" href="https://learndigital.withgoogle.com/digitalgarage" target="_blank">Visit →</a></div></div>
+          <div class="platform-card"><div class="platform-icon">🏫</div><div class="platform-name">Google for Education</div><div class="platform-desc">Navigate Google Classroom, Docs, and Drive; explore responsible AI use in learning environments at home and school.</div><div class="platform-footer"><span class="platform-tag">✅ Free</span><a class="platform-link" href="https://edu.google.com/intl/ALL_uk/for-parents" target="_blank">Visit →</a></div></div>
+          <div class="platform-card"><div class="platform-icon">🛡️</div><div class="platform-name">Be Internet Awesome</div><div class="platform-desc">Teaches digital citizenship, online safety habits, and how to help your child browse the web safely and securely.</div><div class="platform-footer"><span class="platform-tag">✅ Free · Child Safety</span><a class="platform-link" href="https://beinternetawesome.withgoogle.com" target="_blank">Visit →</a></div></div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- SLIDE 3: BINGO -->
+    <div class="slide" id="slide-3">
+      <div class="slide-inner">
+        <p class="section-eyebrow" style="background:var(--yellow-pale);color:#92400E;">🎲 Interactive Game</p>
+        <h2 class="section-title">Offline Bingo Challenges</h2>
+        <p class="section-intro">Tap the squares as you complete each activity. Get four in a row — across, down, or diagonal — to shout <strong>BINGO!</strong> 🎉</p>
+        <div class="bingo-tabs">
+          <button class="tab-btn active" onclick="showBingo(event,'reading')">📖 Reading</button>
+          <button class="tab-btn" onclick="showBingo(event,'science')">🔬 Science</button>
+          <button class="tab-btn" onclick="showBingo(event,'math')">🔢 Maths</button>
+        </div>
+        <div id="bingo-reading" class="bingo-card active">
+          <div class="bingo-header bh-read">📖 Reading Bingo</div>
+          <div class="bingo-grid">
+            <div class="bingo-cell" onclick="toggleBingo(this)"><span class="cell-emoji">🏰</span>Read an adventure story</div>
+            <div class="bingo-cell" onclick="toggleBingo(this)"><span class="cell-emoji">🌙</span>Read before bed 3 nights</div>
+            <div class="bingo-cell" onclick="toggleBingo(this)"><span class="cell-emoji">📰</span>Read a fun fact article</div>
+            <div class="bingo-cell" onclick="toggleBingo(this)"><span class="cell-emoji">✍️</span>Write about your favourite book</div>
+            <div class="bingo-cell" onclick="toggleBingo(this)"><span class="cell-emoji">🌳</span>Read outside in the shade</div>
+            <div class="bingo-cell" onclick="toggleBingo(this)"><span class="cell-emoji">👥</span>Read aloud to a sibling or parent</div>
+            <div class="bingo-cell" onclick="toggleBingo(this)"><span class="cell-emoji">🛌</span>Read a bedtime story</div>
+            <div class="bingo-cell" onclick="toggleBingo(this)"><span class="cell-emoji">🐪</span>Read a book about animals</div>
+            <div class="bingo-cell" onclick="toggleBingo(this)"><span class="cell-emoji">🛋️</span>Read upside down on the sofa</div>
+            <div class="bingo-cell" onclick="toggleBingo(this)"><span class="cell-emoji">🔦</span>Read with a flashlight</div>
+            <div class="bingo-cell" onclick="toggleBingo(this)"><span class="cell-emoji">🎨</span>Read a wordless picture book</div>
+          </div>
+        </div>
+        <div id="bingo-science" class="bingo-card">
+          <div class="bingo-header bh-sci">🔬 Science Bingo</div>
+          <div class="bingo-grid">
+            <div class="bingo-cell" onclick="toggleBingo(this)"><span class="cell-emoji">🐦</span>Spot a bird and describe its colours</div>
+            <div class="bingo-cell" onclick="toggleBingo(this)"><span class="cell-emoji">🫘</span>Plant a seed in a cup and water it</div>
+            <div class="bingo-cell" onclick="toggleBingo(this)"><span class="cell-emoji">☁️</span>Name shapes of morning clouds</div>
+            <div class="bingo-cell" onclick="toggleBingo(this)"><span class="cell-emoji">✈️</span>Fold and fly a paper airplane</div>
+            <div class="bingo-cell" onclick="toggleBingo(this)"><span class="cell-emoji">🧊</span>Watch an ice cube melt</div>
+            <div class="bingo-cell" onclick="toggleBingo(this)"><span class="cell-emoji">🐜</span>Find three different tiny insects</div>
+            <div class="bingo-cell" onclick="toggleBingo(this)"><span class="cell-emoji">🍂</span>Collect 5 leaves or pebbles outside</div>
+            <div class="bingo-cell" onclick="toggleBingo(this)"><span class="cell-emoji">🪵</span>Drop a stick in water: sink or float?</div>
+          </div>
+        </div>
+        <div id="bingo-math" class="bingo-card">
+          <div class="bingo-header bh-math">🔢 Maths Bingo</div>
+          <div class="bingo-grid">
+            <div class="bingo-cell" onclick="toggleBingo(this)"><span class="cell-emoji">👣</span>Count steps from one room to another</div>
+            <div class="bingo-cell" onclick="toggleBingo(this)"><span class="cell-emoji">📏</span>Measure a table using hand-spans</div>
+            <div class="bingo-cell" onclick="toggleBingo(this)"><span class="cell-emoji">🪙</span>Sort coins by colour or size</div>
+            <div class="bingo-cell" onclick="toggleBingo(this)"><span class="cell-emoji">📐</span>Find 3 triangles or squares at home</div>
+            <div class="bingo-cell" onclick="toggleBingo(this)"><span class="cell-emoji">🎂</span>Count the chairs at your table</div>
+            <div class="bingo-cell" onclick="toggleBingo(this)"><span class="cell-emoji">⏰</span>Write the time you finish breakfast</div>
+            <div class="bingo-cell" onclick="toggleBingo(this)"><span class="cell-emoji">📦</span>Find a cube-shaped box</div>
+            <div class="bingo-cell" onclick="toggleBingo(this)"><span class="cell-emoji">🍉</span>Help count out fruit for family snacks</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- SLIDE 4: LOG -->
+    <div class="slide" id="slide-4">
+      <div class="slide-inner">
+        <p class="section-eyebrow" style="background:var(--green-pale);color:var(--green);">📝 Track Progress</p>
+        <h2 class="section-title">My Summer Learning Log</h2>
+        <p class="section-intro">Fill in what you did each week, then click <strong>📤 Submit to Teacher</strong> — it opens the Google Form pre-filled with your week number! ✨</p>
+        <div id="log-locked" style="display:none;background:linear-gradient(90deg,#7C3AED,#EC4899);border-radius:16px;padding:1.4rem 1.8rem;margin-bottom:1.8rem;text-align:center;color:#fff;">
+          <p style="font-family:'Nunito',sans-serif;font-weight:900;font-size:1.05rem;">⏳ Your Learning Log opens on 20 June 2026!</p>
+          <p style="opacity:0.85;margin-top:0.3rem;font-size:0.88rem;">Come back then to start logging your weekly activities.</p>
+        </div>
+        <div id="log-active">
+          <table class="log-table">
+            <thead><tr>
+              <th>📅 Week</th><th>📖 Reading</th><th>🔢 Maths</th>
+              <th>🔬 Science</th><th>💻 Coding</th><th>✍️ Parent Name</th><th>📤 Send</th>
+            </tr></thead>
+            <tbody id="logBody"></tbody>
+          </table>
+          <p style="margin-top:1rem;font-size:0.83rem;color:var(--text-light);">💡 Fill in your activities then click <strong>📤 Send</strong> on each row — it goes straight to your teacher!</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- SLIDE 5: CERTIFICATE -->
+    <div class="slide" id="slide-5">
+      <div class="slide-inner" style="display:flex;align-items:flex-start;justify-content:center;padding-top:30px;padding-bottom:60px;">
+        <div class="cert-wrap" style="width:100%;">
+          <div class="cert-box">
+            <div class="cert-rainbow"></div>
+            <div class="cert-inner" style="text-align:center;">
+              <span class="cert-corner tl">🌟</span><span class="cert-corner tr">🌟</span>
+              <span class="cert-corner bl">🌈</span><span class="cert-corner br">🌈</span>
+              <span class="cert-medal">🏅</span>
+              <p class="cert-school">Summer Learning Adventure 2026 · Grades 1 &amp; 2</p>
+              <h2 class="cert-award-title">Summer Learning Explorer Award</h2>
+              <div class="cert-divider"><div class="cert-divider-line"></div><span class="cert-divider-star">⭐</span><div class="cert-divider-line"></div></div>
+              <p class="cert-presented">This certificate is proudly presented to:</p>
+              <input class="cert-name-input" type="text" placeholder="Type student name here…" id="certName">
+              <p class="cert-body-text">For successfully completing the <strong>Summer Learning Adventure 2026</strong>, demonstrating outstanding curiosity, creativity, and dedication throughout the summer holidays!</p>
+              <span class="cert-year-badge">✨ Summer 2026 ✨</span>
+              <div class="cert-sigs">
+                <div class="cert-sig"><div class="cert-sig-line"></div><div class="cert-sig-label">Teacher Signature</div></div>
+                <div style="font-size:2rem;">🎓</div>
+                <div class="cert-sig"><div class="cert-sig-line"></div><div class="cert-sig-label">Parent Signature</div></div>
+              </div>
+              <div class="cert-actions">
+                <button class="cert-btn cert-btn-print" onclick="window.print()">🖨️ Print</button>
+                <button class="cert-btn cert-btn-dl" onclick="downloadCert()" id="dlBtn">⬇️ Download as Image</button>
+              </div>
+            </div>
+          </div>
+          <p style="text-align:center;color:rgba(255,255,255,0.6);font-size:0.8rem;margin-top:1rem;">ABQ Sohar International School</p>
+        </div>
+      </div>
+    </div>
+
+
+  </div><!-- /track -->
+</div><!-- /carousel-track-outer -->
+
+
+<!-- DOTS -->
+<div class="dots" id="dots"></div>
+
+
+<!-- MODAL OVERLAY -->
+<div id="modal-overlay" onclick="closeModal()"></div>
+<div id="modal-box">
+  <div id="modal-header">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;">
+      <h2 id="modal-title" style="font-family:'Nunito',sans-serif;font-weight:900;font-size:1.4rem;background:linear-gradient(90deg,#7C3AED,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;"></h2>
+      <button onclick="closeModal()" style="background:none;border:none;font-size:1.8rem;cursor:pointer;color:#999;padding:0.2rem 0.5rem;border-radius:8px;" onmouseover="this.style.background='#F3F4F6'" onmouseout="this.style.background='none'">✕</button>
+    </div>
+    <div style="height:3px;background:linear-gradient(90deg,#7C3AED,#EC4899,#F97316);border-radius:2px;margin-bottom:1.2rem;"></div>
+  </div>
+  <div id="modal-body" style="padding:0 1.4rem 2rem;"></div>
+</div>
+
+
+<script>
+  // ── CAROUSEL ──
+  const TOTAL = 6;
+  let currentSlide = 0;
+  const track = document.getElementById('track');
+
+
+  // Build dots
+  const dotsEl = document.getElementById('dots');
+  for (let i = 0; i < TOTAL; i++) {
+    const d = document.createElement('button');
+    d.className = 'dot' + (i===0?' active':'');
+    d.setAttribute('aria-label', 'Go to slide '+(i+1));
+    d.onclick = () => goTo(i);
+    dotsEl.appendChild(d);
+  }
+
+
+  function goTo(n) {
+    if (n < 0 || n >= TOTAL) return;
+    currentSlide = n;
+    track.style.transform = `translateX(-${n * 100}vw)`;
+    // Update dots
+    document.querySelectorAll('.dot').forEach((d,i) => d.classList.toggle('active', i===n));
+    // Update nav buttons
+    for (let i=0;i<TOTAL;i++) {
+      const btn = document.getElementById('nav-'+i);
+      if (btn) btn.classList.toggle('active', i===n);
+    }
+    // Update arrows
+    document.getElementById('arrowPrev').classList.toggle('hidden', n===0);
+    document.getElementById('arrowNext').classList.toggle('hidden', n===TOTAL-1);
+  }
+
+
+  // Touch/swipe
+  let touchStartX = 0, touchStartY = 0, isSwiping = false;
+  const outer = document.querySelector('.carousel-track-outer');
+  outer.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+    isSwiping = false;
+  }, {passive:true});
+  outer.addEventListener('touchmove', e => {
+    const dx = e.touches[0].clientX - touchStartX;
+    const dy = e.touches[0].clientY - touchStartY;
+    if (!isSwiping && Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 10) {
+      isSwiping = true;
+    }
+    if (isSwiping) e.preventDefault();
+  }, {passive:false});
+  outer.addEventListener('touchend', e => {
+    if (!isSwiping) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) goTo(currentSlide + (dx < 0 ? 1 : -1));
+  }, {passive:true});
+
+
+  // Keyboard nav
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') goTo(currentSlide+1);
+    if (e.key === 'ArrowLeft') goTo(currentSlide-1);
+    if (e.key === 'Escape') closeModal();
+  });
+
+
+  // ── DATE GATE ──
+  const UNLOCK_DATE = new Date('2000-01-01');
+  const now = new Date();
+  const isUnlocked = now >= UNLOCK_DATE;
+  if (!isUnlocked) {
+    const banner = document.getElementById('locked-banner');
+    if (banner) banner.style.display = 'block';
+    document.querySelectorAll('.week-card').forEach(c => { c.style.opacity='0.45'; c.style.pointerEvents='none'; });
+    const logActive = document.getElementById('log-active');
+    const logLocked = document.getElementById('log-locked');
+    if (logActive) logActive.style.display = 'none';
+    if (logLocked) logLocked.style.display = 'block';
+  }
+
+
+  // ── WEEKLY CHALLENGES ──
+  function checkWeekComplete(checkbox) {
+    const card = checkbox.closest('.week-card');
+    const tasks = card.querySelectorAll('.week-task');
+    const allDone = Array.from(tasks).every(t => t.checked);
+    const btnWrap = card.querySelector('.submit-btn-wrap');
+    card.classList.toggle('all-done', allDone);
+    btnWrap.style.display = allDone ? 'block' : 'none';
+  }
+  function submitWeek(btn) {
+    const card = btn.closest('.week-card');
+    const weekName = card.dataset.weekName;
+    const url = 'https://docs.google.com/forms/d/e/1FAIpQLSfW8B82PoGsSZ2O-qpv6LzjuQAgqmtd4taQD_DUC2yMIVoiGg/viewform?usp=pp_url&entry.1234567890=' + encodeURIComponent(weekName);
+    window.open(url, '_blank');
+    btn.closest('.submit-btn-wrap').style.display = 'none';
+    card.querySelector('.submitted-badge').style.display = 'block';
+  }
+
+
+  // ── PLATFORM TABS ──
+  function showTab(e, id) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.platforms-tabs .tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    e.target.classList.add('active');
+  }
+
+
+  // ── BINGO ──
+  function showBingo(e, id) {
+    document.querySelectorAll('.bingo-card').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.bingo-tabs .tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('bingo-' + id).classList.add('active');
+    e.target.classList.add('active');
+  }
+  function toggleBingo(el) {
+    el.classList.toggle('marked');
+    checkBingo(el.closest('.bingo-grid'));
+  }
+  function checkBingo(grid) {
+    const cells = Array.from(grid.querySelectorAll('.bingo-cell'));
+    const lines = [[0,1,2,3],[4,5,6,7],[0,4],[1,5],[2,6],[3,7],[0,5],[3,6]];
+    for (const line of lines) {
+      if (line.every(i => cells[i]?.classList.contains('marked'))) {
+        setTimeout(() => alert('🎉 BINGO! Incredible work — you got four in a row!'), 100);
+        return;
+      }
+    }
+  }
+
+
+  // ── LOG TABLE ──
+  const WEEK_NAMES_LOG = ['Week 1 Reading Explorer','Week 2 Math Detective','Week 3 Science Explorer','Week 4 Young Inventor','Week 5 Coding Fun','Week 6 AI and Robotics Explorer'];
+  const LOG_DATES = ['20 Jun','27 Jun','4 Jul','11 Jul','18 Jul','25 Jul'];
+  const logBody = document.getElementById('logBody');
+  if (logBody) {
+    WEEK_NAMES_LOG.forEach((wkName, i) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td style="font-weight:800;color:var(--purple);white-space:nowrap;font-family:'Nunito',sans-serif;">${LOG_DATES[i]}<br><span style="font-size:0.68rem;color:var(--text-light);font-weight:600;">${wkName}</span></td>
+        <td><input id="log-read-${i}" placeholder="e.g. Read a fairy tale…"></td>
+        <td><input id="log-math-${i}" placeholder="e.g. Found 4 cylinders…"></td>
+        <td><input id="log-sci-${i}" placeholder="e.g. Watched ice melt…"></td>
+        <td><input id="log-code-${i}" placeholder="e.g. ScratchJr Level 1…"></td>
+        <td><input id="log-parent-${i}" placeholder="Parent name…"></td>
+        <td><button class="log-submit-btn" onclick="submitLog(${i})">📤 Send</button></td>`;
+      logBody.appendChild(tr);
+    });
+  }
+  function submitLog(i) {
+    const url = 'https://docs.google.com/forms/d/e/1FAIpQLSfW8B82PoGsSZ2O-qpv6LzjuQAgqmtd4taQD_DUC2yMIVoiGg/viewform?usp=pp_url&entry.1234567890=' + encodeURIComponent(WEEK_NAMES_LOG[i]);
+    window.open(url, '_blank');
+  }
+
+
+  // ── MODAL DATA ──
+  const modalData = {
+    reading:{title:'📚 Reading Passages',items:[
+      {icon:'🦁',name:'The Lion and the Mouse',desc:'A classic Aesop fable about kindness and unexpected friendship. Perfect for Grade 1 readers!',tag:'tag-read',label:'Story',url:'https://www.freereadingpassages.com/lion-and-the-mouse'},
+      {icon:'🌊',name:'The Ocean Explorer',desc:'Dive into an adventure under the sea! Learn about sea creatures while practising reading.',tag:'tag-read',label:'Non-fiction',url:'https://www.readworks.org'},
+      {icon:'🚀',name:'My Trip to Space',desc:'An imaginative story about a child who travels to the moon. Great for building vocabulary!',tag:'tag-read',label:'Story',url:'https://www.storylineonline.net'},
+      {icon:'🌳',name:'Trees Are Wonderful',desc:'A beautifully illustrated non-fiction passage about why trees are important for our planet.',tag:'tag-free',label:'Free',url:'https://www.readworks.org'},
+      {icon:'🐝',name:'The Busy Bumblebee',desc:'Follow Bella the bee through her day collecting nectar. Learn science facts while reading!',tag:'tag-read',label:'Story',url:'https://learnenglishkids.britishcouncil.org/short-stories'},
+    ]},
+    maths:{title:'🔢 Maths Games',items:[
+      {icon:'➕',name:'Number Bonds Blaster',desc:'Practise number bonds to 10 and 20 by shooting the correct bubbles. Fast, fun, and addictive!',tag:'tag-game',label:'Game',url:'https://www.topmarks.co.uk/maths-games/hit-the-button'},
+      {icon:'🔷',name:'Shape Sorter',desc:'Drag and drop 2D and 3D shapes into the correct groups. Covers squares, circles, cubes, and more!',tag:'tag-game',label:'Game',url:'https://www.topmarks.co.uk/early-years/shape-sorter'},
+      {icon:'🧮',name:'Count &amp; Compare',desc:'Compare groups of objects and decide which is more or less. Great for early number sense!',tag:'tag-game',label:'Game',url:'https://www.splashlearn.com/math-games'},
+      {icon:'📏',name:'Measurement Explorer',desc:'Measure animals and objects using rulers on screen. Introduces cm and non-standard units!',tag:'tag-free',label:'Free',url:'https://www.khanacademy.org/math/cc-kindergarten-math'},
+      {icon:'🕐',name:'Telling Time Game',desc:"Move the clock hands to match the given time. Covers o'clock and half past for beginners!",tag:'tag-game',label:'Game',url:'https://www.topmarks.co.uk/time/teaching-clock'},
+    ]},
+    science:{title:'🔬 Science Games',items:[
+      {icon:'🌡️',name:'Weather Watch',desc:'Observe real weather data and match it to the correct season. Learn about sun, rain, and wind!',tag:'tag-game',label:'Game',url:'https://climatekids.nasa.gov/menu/play'},
+      {icon:'🧲',name:'Sink or Float Lab',desc:'Drag objects into the water tank and predict whether they sink or float before testing!',tag:'tag-game',label:'Game',url:'https://www.bbc.co.uk/bitesize/topics/zkgg87h'},
+      {icon:'🦋',name:'Life Cycle Sorter',desc:'Arrange the stages of a butterfly or frog life cycle in the correct order. Interactive and visual!',tag:'tag-game',label:'Game',url:'https://www.bbc.co.uk/bitesize/topics/z6882hv'},
+      {icon:'🌱',name:'Plant Growing Game',desc:'Water, feed, and grow your own digital plant — learn what plants need to survive!',tag:'tag-free',label:'Free',url:'https://kids.nationalgeographic.com/games'},
+      {icon:'🔊',name:'Sound &amp; Light Explorer',desc:'Interactive activities exploring how sound travels and why we see colours. Brilliantly visual!',tag:'tag-game',label:'Game',url:'https://www.bbc.co.uk/bitesize/subjects/z2pfb9q'},
+    ]},
+    coding:{title:'💻 Coding Activities',items:[
+      {icon:'🐱',name:'ScratchJr — Move a Character',desc:'Open ScratchJr and snap blocks together to make a cat walk across the screen. Your first program!',tag:'tag-free',label:'Free App',url:'https://www.scratchjr.org'},
+      {icon:'🐝',name:'Code.org — Course A Maze',desc:'Guide a bee through a flower maze using arrow blocks. The easiest intro to coding logic!',tag:'tag-free',label:'Free',url:'https://studio.code.org/s/coursea-2022/lessons/3/levels/1'},
+      {icon:'🎮',name:'Lightbot Jr',desc:'Program a little robot to light up tiles by giving it step-by-step instructions. Logic puzzle fun!',tag:'tag-game',label:'Game',url:'https://lightbot.com/flash.html'},
+      {icon:'🎨',name:'ScratchJr — Tell a Story',desc:'Create a 3-scene animated story in ScratchJr with backgrounds, characters, and speech bubbles!',tag:'tag-free',label:'Free App',url:'https://www.scratchjr.org'},
+      {icon:'🏁',name:'Code.org — Course A Loops',desc:'Learn how to repeat commands using loops — make a character dance in a circle with just 3 blocks!',tag:'tag-free',label:'Free',url:'https://studio.code.org/s/coursea-2022/lessons/6/levels/1'},
+    ]},
+    ai:{title:'🤖 AI Activities',items:[
+      {icon:'✋',name:'Train an AI with Your Hand',desc:'Open Teachable Machine and teach it the difference between a thumbs up and thumbs down. Watch AI learn!',tag:'tag-free',label:'Free',url:'https://teachablemachine.withgoogle.com/train/image'},
+      {icon:'🎨',name:'Turn a Doodle into Art',desc:"Draw a simple doodle in Google AutoDraw and watch AI guess what you're drawing in real time!",tag:'tag-free',label:'Free',url:'https://www.autodraw.com'},
+      {icon:'🗣️',name:'Talk to a Story AI',desc:'Use the Khanmigo story helper to co-write a short adventure story with AI as your writing partner!',tag:'tag-free',label:'Free',url:'https://www.khanacademy.org/khan-labs'},
+      {icon:'🖼️',name:'Explore Museum AI',desc:"Use Google Arts & Culture's Art Selfie or colour explorer — see how AI analyses and matches images!",tag:'tag-free',label:'Free',url:'https://artsandculture.google.com/experiments'},
+      {icon:'🤔',name:'Quick Draw with AI',desc:"Draw something in 20 seconds and let Google's neural network try to guess what it is!",tag:'tag-game',label:'Game',url:'https://quickdraw.withgoogle.com'},
+    ]},
+    canva:{title:'🎨 Create with Canva',items:[
+      {icon:'🎂',name:'Birthday Card Designer',desc:'Make a colourful birthday card for a friend or family member! Pick a template, add stickers, write a kind message, and decorate it your way.',tag:'tag-free',label:'Free',url:'https://www.canva.com/create/cards/birthday-cards/'},
+      {icon:'🦁',name:'Animal Poster',desc:'Choose your favourite animal and create a fun poster about it — add a big photo, fun facts, and bright colours. Print it to decorate your room!',tag:'tag-free',label:'Free',url:'https://www.canva.com/create/posters/'},
+      {icon:'📸',name:'Summer Photo Collage',desc:"Collect your favourite summer photos and arrange them into a beautiful collage. Add frames, stickers, and your name — it is like your own magazine cover!",tag:'tag-free',label:'Free',url:'https://www.canva.com/create/photo-collages/'},
+      {icon:'🌈',name:'My Feelings Greeting Card',desc:'Design a card to say thank you, well done, or I love you to someone special. Experiment with fonts, colours, and cute Canva stickers!',tag:'tag-free',label:'Free',url:'https://www.canva.com/create/cards/'},
+      {icon:'⭐',name:'My Summer Story Poster',desc:"Create a What I Did This Summer poster — draw or upload pictures, write captions, and share it with your teacher when school starts!",tag:'tag-free',label:'Free',url:'https://www.canva.com/create/posters/'},
+    ]},
+    safety:{title:'🛡️ Online Safety Activities',items:[
+      {icon:'🌐',name:'Interland — Kind Kingdom',desc:'Defend the Kingdom of Kindness from unkind words. Learn how to be a good digital citizen!',tag:'tag-game',label:'Game',url:'https://beinternetawesome.withgoogle.com/en_us/interland/kind-kingdom'},
+      {icon:'🏰',name:'Interland — Tower of Treasure',desc:'Protect your personal info! Learn what to share online and what to keep private.',tag:'tag-game',label:'Game',url:'https://beinternetawesome.withgoogle.com/en_us/interland/tower-of-treasure'},
+      {icon:'🔒',name:'Interland — Reality River',desc:'Spot fake news and tricky information as you cross the river. Critical thinking for kids!',tag:'tag-game',label:'Game',url:'https://beinternetawesome.withgoogle.com/en_us/interland/reality-river'},
+      {icon:'🦈',name:'Interland — Mindful Mountain',desc:'Share with care! Learn which things are OK to post online and which should stay private.',tag:'tag-game',label:'Game',url:'https://beinternetawesome.withgoogle.com/en_us/interland/mindful-mountain'},
+      {icon:'📋',name:'Internet Safety Quiz',desc:'Test what you know about staying safe online with this fun, colourful quiz for young learners!',tag:'tag-free',label:'Free',url:'https://www.bbc.co.uk/cbbc/quizzes/stay-safe-online-quiz'},
+    ]}
+  };
+
+
+  function openModal(key) {
+    const data = modalData[key];
+    document.getElementById('modal-title').innerHTML = data.title;
+    document.getElementById('modal-body').innerHTML = data.items.map(item => `
+      <a class="res-card" href="${item.url}" target="_blank" rel="noopener">
+        <span class="res-icon">${item.icon}</span>
+        <div class="res-info">
+          <div class="res-name">${item.name}</div>
+          <div class="res-desc">${item.desc}</div>
+          <span class="res-tag ${item.tag}">${item.label}</span>
+        </div>
+        <span class="res-arrow">→</span>
+      </a>`).join('');
+    document.getElementById('modal-overlay').style.display = 'block';
+    const box = document.getElementById('modal-box');
+    box.style.display = 'block';
+    requestAnimationFrame(() => { box.style.opacity='1'; box.style.transform='translate(-50%,-50%) scale(1)'; });
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    const box = document.getElementById('modal-box');
+    box.style.opacity='0'; box.style.transform='translate(-50%,-50%) scale(0.92)';
+    setTimeout(() => { box.style.display='none'; document.getElementById('modal-overlay').style.display='none'; document.body.style.overflow=''; }, 220);
+  }
+
+
+  // ── CERTIFICATE DOWNLOAD ──
+  function downloadCert() {
+    const name = document.getElementById('certName').value.trim() || 'Summer Explorer';
+    const btn = document.getElementById('dlBtn');
+    btn.textContent = '⏳ Creating…'; btn.disabled = true;
+    const W=1200,H=850;
+    const canvas = document.createElement('canvas');
+    canvas.width=W; canvas.height=H;
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle='#ffffff'; ctx.fillRect(0,0,W,H);
+    const rainbow=ctx.createLinearGradient(0,0,W,0);
+    rainbow.addColorStop(0,'#EF4444');rainbow.addColorStop(0.17,'#F97316');rainbow.addColorStop(0.33,'#FBBF24');
+    rainbow.addColorStop(0.5,'#10B981');rainbow.addColorStop(0.67,'#3B82F6');rainbow.addColorStop(0.83,'#7C3AED');rainbow.addColorStop(1,'#EC4899');
+    ctx.fillStyle=rainbow; ctx.fillRect(0,0,W,18);
+    ctx.strokeStyle='#D4A017';ctx.lineWidth=10;ctx.strokeRect(20,26,W-40,H-46);
+    ctx.lineWidth=3;ctx.strokeStyle='#F0B429';ctx.strokeRect(32,38,W-64,H-70);
+    const stars=['🌟','🌟','🌈','🌈'];
+    const corners=[[52,65],[W-52,65],[52,H-45],[W-52,H-45]];
+    ctx.font='36px serif';ctx.textAlign='center';
+    corners.forEach((c,i)=>ctx.fillText(stars[i],c[0],c[1]));
+    ctx.font='64px serif';ctx.fillText('🏅',W/2,135);
+    ctx.font='600 18px Arial,sans-serif';ctx.fillStyle='#7C3AED';ctx.textAlign='center';
+    ctx.fillText('SUMMER LEARNING ADVENTURE 2026  ·  GRADES 1 & 2',W/2,185);
+    const tg=ctx.createLinearGradient(W*0.2,0,W*0.8,0);tg.addColorStop(0,'#7C3AED');tg.addColorStop(1,'#EC4899');
+    ctx.fillStyle=tg;ctx.font='bold 52px Arial,sans-serif';ctx.fillText('Summer Learning Explorer Award',W/2,255);
+    ctx.strokeStyle='#E5E7EB';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(200,280);ctx.lineTo(W-200,280);ctx.stroke();
+    ctx.font='22px serif';ctx.fillStyle='#888';ctx.fillText('⭐',W/2,298);
+    ctx.font='20px Arial,sans-serif';ctx.fillStyle='#9CA3AF';ctx.fillText('This certificate is proudly presented to:',W/2,340);
+    const ng=ctx.createLinearGradient(W*0.3,0,W*0.7,0);ng.addColorStop(0,'#7C3AED');ng.addColorStop(1,'#EC4899');
+    ctx.fillStyle=ng;ctx.font='bold 56px Arial,sans-serif';ctx.fillText(name,W/2,415);
+    const nw=ctx.measureText(name).width;
+    ctx.strokeStyle='#7C3AED';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(W/2-nw/2,425);ctx.lineTo(W/2+nw/2,425);ctx.stroke();
+    ctx.font='20px Arial,sans-serif';ctx.fillStyle='#4B5563';
+    ctx.fillText('For successfully completing the Summer Learning Adventure 2026,',W/2,480);
+    ctx.fillText('demonstrating outstanding curiosity, creativity, and dedication!',W/2,510);
+    const bW=260,bH=40,bX=W/2-130,bY=535;
+    const bg2=ctx.createLinearGradient(bX,0,bX+bW,0);bg2.addColorStop(0,'#FBBF24');bg2.addColorStop(1,'#F97316');
+    ctx.fillStyle=bg2;roundRect(ctx,bX,bY,bW,bH,20);ctx.fillStyle='#fff';ctx.font='bold 18px Arial,sans-serif';ctx.fillText('✨  Summer 2026  ✨',W/2,bY+27);
+    ctx.setLineDash([8,6]);ctx.strokeStyle='#E5E7EB';ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(80,625);ctx.lineTo(W-80,625);ctx.stroke();ctx.setLineDash([]);
+    const sigY=690;
+    [[220,'Teacher Signature'],[W-220,'Parent Signature']].forEach(([x,label])=>{
+      ctx.strokeStyle='#1E1B4B';ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(x-120,sigY);ctx.lineTo(x+120,sigY);ctx.stroke();
+      ctx.font='15px Arial,sans-serif';ctx.fillStyle='#9CA3AF';ctx.fillText(label,x,sigY+24);
+    });
+    ctx.font='32px serif';ctx.fillText('🎓',W/2,sigY+10);
+    ctx.font='14px Arial,sans-serif';ctx.fillStyle='#C4B5FD';ctx.fillText('ABQ Sohar International School',W/2,H-30);
+    const link=document.createElement('a');
+    link.download='Certificate-'+name.replace(/\s+/g,'-')+'.png';
+    link.href=canvas.toDataURL('image/png');link.click();
+    btn.textContent='⬇️ Download as Image';btn.disabled=false;
+  }
+  function roundRect(ctx,x,y,w,h,r){
+    ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+    ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+    ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+    ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();ctx.fill();
+  }
+</script>
+</body>
+</html>
