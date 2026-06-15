@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -35,7 +35,6 @@
   html, body { height: 100%; overflow: hidden; }
   body { font-family: 'Inter', sans-serif; background: var(--off-white); color: var(--text-dark); }
 
-
   /* ── NAV ── */
   nav.top-nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 200;
@@ -62,7 +61,6 @@
   }
   .top-nav ul button.active { background: var(--yellow); border-color: var(--yellow); color: #fff; }
 
-
   /* ── CAROUSEL WRAPPER ── */
   .carousel-track-outer {
     position: fixed;
@@ -87,7 +85,6 @@
     scroll-behavior: smooth;
   }
 
-
   /* ── SLIDE DOTS ── */
   .dots {
     position: fixed;
@@ -104,7 +101,6 @@
   }
   .dot.active { width: 24px; border-radius: 4px; background: var(--purple); }
 
-
   /* ── PREV/NEXT ARROWS ── */
   .arrow {
     position: fixed; top: 50%; transform: translateY(-50%);
@@ -120,10 +116,8 @@
   .arrow.next { right: 12px; }
   .arrow.hidden { opacity: 0; pointer-events: none; }
 
-
   /* ── SLIDE INNER PADDING ── */
   .slide-inner { padding: 40px 2rem 60px; max-width: 1080px; margin: 0 auto; }
-
 
   /* ── HERO ── */
   #slide-0 {
@@ -171,7 +165,6 @@
   .btn-secondary{background:rgba(255,255,255,0.15);color:#fff;border:2px solid rgba(255,255,255,0.4);}
   .hero-emojis{margin-top:2rem;font-size:2.2rem;letter-spacing:10px;opacity:0.7;}
 
-
   /* goals strip inside hero */
   .goals-strip{
     background:rgba(0,0,0,0.2);border-radius:20px;padding:1.5rem;margin-top:2rem;width:100%;max-width:680px;
@@ -189,7 +182,6 @@
   .goal-label{font-family:'Nunito',sans-serif;font-weight:800;font-size:0.82rem;color:#fff;}
   .goal-sub{display:block;font-size:0.68rem;font-family:'Nunito',sans-serif;font-weight:700;color:rgba(255,255,255,0.65);margin-top:0.15rem;}
 
-
   /* ── SECTION HEADERS (shared) ── */
   .section-eyebrow{
     display:inline-block;font-family:'Nunito',sans-serif;font-weight:800;
@@ -201,7 +193,6 @@
     font-size:clamp(1.7rem,3.5vw,2.4rem);line-height:1.1;margin-bottom:0.8rem;
   }
   .section-intro{font-size:1rem;color:var(--text-mid);line-height:1.8;max-width:640px;margin-bottom:2rem;}
-
 
   /* ── SLIDE 1 — CHALLENGES ── */
   #slide-1 { background: #fff; }
@@ -233,7 +224,6 @@
   @keyframes popIn{from{opacity:0;transform:scale(0.85);}to{opacity:1;transform:scale(1);}}
   .week-card.all-done{box-shadow:0 0 0 3px #10B981;}
 
-
   /* ── SLIDE 2 — PLATFORMS ── */
   #slide-2{background:linear-gradient(180deg,#F5F3FF 0%,#fff 100%);}
   .platforms-tabs{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.5rem;}
@@ -263,7 +253,6 @@
   }
   .platform-link:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(124,58,237,0.35);}
 
-
   /* ── SLIDE 3 — BINGO ── */
   #slide-3{background:linear-gradient(135deg,#FFFBEB,#FFF0F9,#EFF6FF);}
   .bingo-tabs{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.2rem;}
@@ -284,7 +273,6 @@
   .bingo-cell:hover{background:var(--purple-pale);}
   .bingo-cell.marked{background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;border-color:transparent;}
 
-
   /* ── SLIDE 4 — LOG ── */
   #slide-4{background:#fff;}
   .log-table{width:100%;border-collapse:collapse;font-size:0.86rem;border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.07);}
@@ -304,7 +292,6 @@
     font-weight:800;font-size:0.78rem;cursor:pointer;white-space:nowrap;transition:transform 0.15s;
   }
   .log-submit-btn:hover{transform:translateY(-1px);}
-
 
   /* ── SLIDE 5 — CERTIFICATE ── */
   #slide-5{background:linear-gradient(135deg,#4C1D95,#7C3AED,#EC4899);position:relative;overflow-y:auto;overflow-x:hidden;}
@@ -364,7 +351,6 @@
   .cert-btn-print{background:linear-gradient(90deg,var(--purple),var(--pink));color:#fff;}
   .cert-btn-dl{background:var(--yellow);color:#fff;}
 
-
   /* ── MODAL ── */
   #modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:500;backdrop-filter:blur(4px);}
   #modal-box{
@@ -389,7 +375,6 @@
   .tag-free{background:#ECFDF5;color:#059669;}
   .tag-read{background:#FFF0F9;color:#EC4899;}
   .tag-game{background:#EFF6FF;color:#3B82F6;}
-
 
   /* ── RESPONSIVE ── */
   @media(max-width:1100px){
@@ -428,7 +413,6 @@
 </head>
 <body>
 
-
 <!-- TOP NAV -->
 <nav class="top-nav">
   <div class="nav-logo">☀️ Summer Learning Adventure</div>
@@ -442,16 +426,13 @@
   </ul>
 </nav>
 
-
 <!-- PREV / NEXT ARROWS -->
 <button class="arrow prev hidden" id="arrowPrev" onclick="goTo(currentSlide-1)">&#8592;</button>
 <button class="arrow next" id="arrowNext" onclick="goTo(currentSlide+1)">&#8594;</button>
 
-
 <!-- CAROUSEL -->
 <div class="carousel-track-outer">
   <div class="carousel-track" id="track">
-
 
     <!-- SLIDE 0: HERO -->
     <div class="slide" id="slide-0">
@@ -481,7 +462,6 @@
       </div>
     </div>
 
-
     <!-- SLIDE 1: CHALLENGES -->
     <div class="slide" id="slide-1">
       <div class="slide-inner">
@@ -489,12 +469,10 @@
         <h2 class="section-title">Weekly Summer Challenges</h2>
         <p class="section-intro">Tick off each activity as you go! When all tasks in a week are ticked, a <strong>✉️ Send to Teacher</strong> button appears. 🎉</p>
 
-
         <div id="locked-banner" style="display:none;background:linear-gradient(90deg,#7C3AED,#EC4899);border-radius:16px;padding:1.4rem 1.8rem;margin-bottom:1.8rem;text-align:center;color:#fff;">
           <p style="font-family:'Nunito',sans-serif;font-weight:900;font-size:1.15rem;">⏳ Challenges unlock on 20 June 2026!</p>
           <p style="opacity:0.85;margin-top:0.4rem;font-size:0.9rem;">Get ready — the Summer Learning Adventure starts soon! 🌟</p>
         </div>
-
 
         <div class="weeks-grid">
           <div class="week-card wk1" data-week="1" data-week-name="Week 1 Reading Explorer">
@@ -570,7 +548,6 @@
       </div>
     </div>
 
-
     <!-- SLIDE 2: PLATFORMS -->
     <div class="slide" id="slide-2">
       <div class="slide-inner">
@@ -614,7 +591,6 @@
         </div>
       </div>
     </div>
-
 
     <!-- SLIDE 3: BINGO -->
     <div class="slide" id="slide-3">
@@ -672,7 +648,6 @@
       </div>
     </div>
 
-
     <!-- SLIDE 4: LOG -->
     <div class="slide" id="slide-4">
       <div class="slide-inner">
@@ -695,7 +670,6 @@
         </div>
       </div>
     </div>
-
 
     <!-- SLIDE 5: CERTIFICATE -->
     <div class="slide" id="slide-5">
@@ -730,14 +704,11 @@
       </div>
     </div>
 
-
   </div><!-- /track -->
 </div><!-- /carousel-track-outer -->
 
-
 <!-- DOTS -->
 <div class="dots" id="dots"></div>
-
 
 <!-- MODAL OVERLAY -->
 <div id="modal-overlay" onclick="closeModal()"></div>
@@ -752,13 +723,11 @@
   <div id="modal-body" style="padding:0 1.4rem 2rem;"></div>
 </div>
 
-
 <script>
   // ── CAROUSEL ──
   const TOTAL = 6;
   let currentSlide = 0;
   const track = document.getElementById('track');
-
 
   // Build dots
   const dotsEl = document.getElementById('dots');
@@ -769,7 +738,6 @@
     d.onclick = () => goTo(i);
     dotsEl.appendChild(d);
   }
-
 
   function goTo(n) {
     if (n < 0 || n >= TOTAL) return;
@@ -786,7 +754,6 @@
     document.getElementById('arrowPrev').classList.toggle('hidden', n===0);
     document.getElementById('arrowNext').classList.toggle('hidden', n===TOTAL-1);
   }
-
 
   // Touch/swipe
   let touchStartX = 0, touchStartY = 0, isSwiping = false;
@@ -810,14 +777,12 @@
     if (Math.abs(dx) > 50) goTo(currentSlide + (dx < 0 ? 1 : -1));
   }, {passive:true});
 
-
   // Keyboard nav
   document.addEventListener('keydown', e => {
     if (e.key === 'ArrowRight') goTo(currentSlide+1);
     if (e.key === 'ArrowLeft') goTo(currentSlide-1);
     if (e.key === 'Escape') closeModal();
   });
-
 
   // ── DATE GATE ──
   const UNLOCK_DATE = new Date('2000-01-01');
@@ -832,7 +797,6 @@
     if (logActive) logActive.style.display = 'none';
     if (logLocked) logLocked.style.display = 'block';
   }
-
 
   // ── WEEKLY CHALLENGES ──
   function checkWeekComplete(checkbox) {
@@ -852,7 +816,6 @@
     card.querySelector('.submitted-badge').style.display = 'block';
   }
 
-
   // ── PLATFORM TABS ──
   function showTab(e, id) {
     document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
@@ -860,7 +823,6 @@
     document.getElementById('tab-' + id).classList.add('active');
     e.target.classList.add('active');
   }
-
 
   // ── BINGO ──
   function showBingo(e, id) {
@@ -883,7 +845,6 @@
       }
     }
   }
-
 
   // ── LOG TABLE ──
   const WEEK_NAMES_LOG = ['Week 1 Reading Explorer','Week 2 Math Detective','Week 3 Science Explorer','Week 4 Young Inventor','Week 5 Coding Fun','Week 6 AI and Robotics Explorer'];
@@ -908,85 +869,839 @@
     window.open(url, '_blank');
   }
 
-
   // ── MODAL DATA ──
-  const modalData = {
-    reading:{title:'📚 Reading Passages',items:[
-      {icon:'🦁',name:'The Lion and the Mouse',desc:'A classic Aesop fable about kindness and unexpected friendship. Perfect for Grade 1 readers!',tag:'tag-read',label:'Story',url:'https://www.freereadingpassages.com/lion-and-the-mouse'},
-      {icon:'🌊',name:'The Ocean Explorer',desc:'Dive into an adventure under the sea! Learn about sea creatures while practising reading.',tag:'tag-read',label:'Non-fiction',url:'https://www.readworks.org'},
-      {icon:'🚀',name:'My Trip to Space',desc:'An imaginative story about a child who travels to the moon. Great for building vocabulary!',tag:'tag-read',label:'Story',url:'https://www.storylineonline.net'},
-      {icon:'🌳',name:'Trees Are Wonderful',desc:'A beautifully illustrated non-fiction passage about why trees are important for our planet.',tag:'tag-free',label:'Free',url:'https://www.readworks.org'},
-      {icon:'🐝',name:'The Busy Bumblebee',desc:'Follow Bella the bee through her day collecting nectar. Learn science facts while reading!',tag:'tag-read',label:'Story',url:'https://learnenglishkids.britishcouncil.org/short-stories'},
-    ]},
-    maths:{title:'🔢 Maths Games',items:[
-      {icon:'➕',name:'Number Bonds Blaster',desc:'Practise number bonds to 10 and 20 by shooting the correct bubbles. Fast, fun, and addictive!',tag:'tag-game',label:'Game',url:'https://www.topmarks.co.uk/maths-games/hit-the-button'},
-      {icon:'🔷',name:'Shape Sorter',desc:'Drag and drop 2D and 3D shapes into the correct groups. Covers squares, circles, cubes, and more!',tag:'tag-game',label:'Game',url:'https://www.topmarks.co.uk/early-years/shape-sorter'},
-      {icon:'🧮',name:'Count &amp; Compare',desc:'Compare groups of objects and decide which is more or less. Great for early number sense!',tag:'tag-game',label:'Game',url:'https://www.splashlearn.com/math-games'},
-      {icon:'📏',name:'Measurement Explorer',desc:'Measure animals and objects using rulers on screen. Introduces cm and non-standard units!',tag:'tag-free',label:'Free',url:'https://www.khanacademy.org/math/cc-kindergarten-math'},
-      {icon:'🕐',name:'Telling Time Game',desc:"Move the clock hands to match the given time. Covers o'clock and half past for beginners!",tag:'tag-game',label:'Game',url:'https://www.topmarks.co.uk/time/teaching-clock'},
-    ]},
-    science:{title:'🔬 Science Games',items:[
-      {icon:'🌡️',name:'Weather Watch',desc:'Observe real weather data and match it to the correct season. Learn about sun, rain, and wind!',tag:'tag-game',label:'Game',url:'https://climatekids.nasa.gov/menu/play'},
-      {icon:'🧲',name:'Sink or Float Lab',desc:'Drag objects into the water tank and predict whether they sink or float before testing!',tag:'tag-game',label:'Game',url:'https://www.bbc.co.uk/bitesize/topics/zkgg87h'},
-      {icon:'🦋',name:'Life Cycle Sorter',desc:'Arrange the stages of a butterfly or frog life cycle in the correct order. Interactive and visual!',tag:'tag-game',label:'Game',url:'https://www.bbc.co.uk/bitesize/topics/z6882hv'},
-      {icon:'🌱',name:'Plant Growing Game',desc:'Water, feed, and grow your own digital plant — learn what plants need to survive!',tag:'tag-free',label:'Free',url:'https://kids.nationalgeographic.com/games'},
-      {icon:'🔊',name:'Sound &amp; Light Explorer',desc:'Interactive activities exploring how sound travels and why we see colours. Brilliantly visual!',tag:'tag-game',label:'Game',url:'https://www.bbc.co.uk/bitesize/subjects/z2pfb9q'},
-    ]},
-    coding:{title:'💻 Coding Activities',items:[
-      {icon:'🐱',name:'ScratchJr — Move a Character',desc:'Open ScratchJr and snap blocks together to make a cat walk across the screen. Your first program!',tag:'tag-free',label:'Free App',url:'https://www.scratchjr.org'},
-      {icon:'🐝',name:'Code.org — Course A Maze',desc:'Guide a bee through a flower maze using arrow blocks. The easiest intro to coding logic!',tag:'tag-free',label:'Free',url:'https://studio.code.org/s/coursea-2022/lessons/3/levels/1'},
-      {icon:'🎮',name:'Lightbot Jr',desc:'Program a little robot to light up tiles by giving it step-by-step instructions. Logic puzzle fun!',tag:'tag-game',label:'Game',url:'https://lightbot.com/flash.html'},
-      {icon:'🎨',name:'ScratchJr — Tell a Story',desc:'Create a 3-scene animated story in ScratchJr with backgrounds, characters, and speech bubbles!',tag:'tag-free',label:'Free App',url:'https://www.scratchjr.org'},
-      {icon:'🏁',name:'Code.org — Course A Loops',desc:'Learn how to repeat commands using loops — make a character dance in a circle with just 3 blocks!',tag:'tag-free',label:'Free',url:'https://studio.code.org/s/coursea-2022/lessons/6/levels/1'},
-    ]},
-    ai:{title:'🤖 AI Activities',items:[
-      {icon:'✋',name:'Train an AI with Your Hand',desc:'Open Teachable Machine and teach it the difference between a thumbs up and thumbs down. Watch AI learn!',tag:'tag-free',label:'Free',url:'https://teachablemachine.withgoogle.com/train/image'},
-      {icon:'🎨',name:'Turn a Doodle into Art',desc:"Draw a simple doodle in Google AutoDraw and watch AI guess what you're drawing in real time!",tag:'tag-free',label:'Free',url:'https://www.autodraw.com'},
-      {icon:'🗣️',name:'Talk to a Story AI',desc:'Use the Khanmigo story helper to co-write a short adventure story with AI as your writing partner!',tag:'tag-free',label:'Free',url:'https://www.khanacademy.org/khan-labs'},
-      {icon:'🖼️',name:'Explore Museum AI',desc:"Use Google Arts & Culture's Art Selfie or colour explorer — see how AI analyses and matches images!",tag:'tag-free',label:'Free',url:'https://artsandculture.google.com/experiments'},
-      {icon:'🤔',name:'Quick Draw with AI',desc:"Draw something in 20 seconds and let Google's neural network try to guess what it is!",tag:'tag-game',label:'Game',url:'https://quickdraw.withgoogle.com'},
-    ]},
-    canva:{title:'🎨 Create with Canva',items:[
-      {icon:'🎂',name:'Birthday Card Designer',desc:'Make a colourful birthday card for a friend or family member! Pick a template, add stickers, write a kind message, and decorate it your way.',tag:'tag-free',label:'Free',url:'https://www.canva.com/create/cards/birthday-cards/'},
-      {icon:'🦁',name:'Animal Poster',desc:'Choose your favourite animal and create a fun poster about it — add a big photo, fun facts, and bright colours. Print it to decorate your room!',tag:'tag-free',label:'Free',url:'https://www.canva.com/create/posters/'},
-      {icon:'📸',name:'Summer Photo Collage',desc:"Collect your favourite summer photos and arrange them into a beautiful collage. Add frames, stickers, and your name — it is like your own magazine cover!",tag:'tag-free',label:'Free',url:'https://www.canva.com/create/photo-collages/'},
-      {icon:'🌈',name:'My Feelings Greeting Card',desc:'Design a card to say thank you, well done, or I love you to someone special. Experiment with fonts, colours, and cute Canva stickers!',tag:'tag-free',label:'Free',url:'https://www.canva.com/create/cards/'},
-      {icon:'⭐',name:'My Summer Story Poster',desc:"Create a What I Did This Summer poster — draw or upload pictures, write captions, and share it with your teacher when school starts!",tag:'tag-free',label:'Free',url:'https://www.canva.com/create/posters/'},
-    ]},
-    safety:{title:'🛡️ Online Safety Activities',items:[
-      {icon:'🌐',name:'Interland — Kind Kingdom',desc:'Defend the Kingdom of Kindness from unkind words. Learn how to be a good digital citizen!',tag:'tag-game',label:'Game',url:'https://beinternetawesome.withgoogle.com/en_us/interland/kind-kingdom'},
-      {icon:'🏰',name:'Interland — Tower of Treasure',desc:'Protect your personal info! Learn what to share online and what to keep private.',tag:'tag-game',label:'Game',url:'https://beinternetawesome.withgoogle.com/en_us/interland/tower-of-treasure'},
-      {icon:'🔒',name:'Interland — Reality River',desc:'Spot fake news and tricky information as you cross the river. Critical thinking for kids!',tag:'tag-game',label:'Game',url:'https://beinternetawesome.withgoogle.com/en_us/interland/reality-river'},
-      {icon:'🦈',name:'Interland — Mindful Mountain',desc:'Share with care! Learn which things are OK to post online and which should stay private.',tag:'tag-game',label:'Game',url:'https://beinternetawesome.withgoogle.com/en_us/interland/mindful-mountain'},
-      {icon:'📋',name:'Internet Safety Quiz',desc:'Test what you know about staying safe online with this fun, colourful quiz for young learners!',tag:'tag-free',label:'Free',url:'https://www.bbc.co.uk/cbbc/quizzes/stay-safe-online-quiz'},
-    ]}
+  // ══════════════════════════════════════════════════════════
+  // INTERACTIVE ACTIVITY ENGINE
+  // 7 topics × 3 activities · scoring + wrong-answer report
+  // ══════════════════════════════════════════════════════════
+
+  const ACTIVITIES = {
+
+    reading: {
+      title: '📚 Reading Activities',
+      color: '#EC4899',
+      items: [
+        {
+          type: 'passage_quiz',
+          name: '🦁 The Lion and the Mouse',
+          emoji: '🦁',
+          passage: `One day, a big lion was sleeping under a tree. A small mouse ran over his nose. The lion woke up and caught the mouse. "I will eat you!" said the lion. "Please let me go," said the mouse. "One day I will help you!" The lion laughed. But he let the mouse go. A few days later, the lion was caught in a net. He could not get free. The mouse heard him and came running. The little mouse bit the ropes and the lion was free! "Thank you, little friend!" said the lion.`,
+          questions: [
+            { q: 'Where was the lion sleeping?', opts: ['Under a tree 🌳', 'In a cave 🦇', 'Near a river 🌊', 'On a rock 🪨'], ans: 0 },
+            { q: 'Who woke up the lion?', opts: ['A bird 🐦', 'A mouse 🐭', 'A rabbit 🐰', 'A frog 🐸'], ans: 1 },
+            { q: 'What did the mouse promise the lion?', opts: ['To bring food 🍎', 'To help him one day 🤝', 'To find water 💧', 'To sing a song 🎵'], ans: 1 },
+            { q: 'How was the lion caught?', opts: ['In a net 🕸️', 'In a box 📦', 'In a hole 🕳️', 'By a rope 🪢'], ans: 0 },
+            { q: 'How did the mouse help the lion?', opts: ['He called for help 📢', 'He bit the ropes 🦷', 'He pushed the net 💪', 'He found a key 🔑'], ans: 1 },
+          ]
+        },
+        {
+          type: 'word_match',
+          name: '🌈 Word Match Game',
+          emoji: '🌈',
+          instruction: 'Match each word to its picture! Tap a word, then tap its matching picture.',
+          pairs: [
+            { word: 'sun', emoji: '☀️' },
+            { word: 'fish', emoji: '🐟' },
+            { word: 'tree', emoji: '🌳' },
+            { word: 'book', emoji: '📚' },
+            { word: 'bird', emoji: '🐦' },
+            { word: 'apple', emoji: '🍎' },
+          ]
+        },
+        {
+          type: 'fill_blank',
+          name: '✏️ Fill in the Blanks',
+          emoji: '✏️',
+          instruction: 'Choose the correct word to complete each sentence!',
+          questions: [
+            { sentence: 'The cat sat on the ___', opts: ['mat 🧶', 'sky ☁️', 'fish 🐟', 'tree 🌳'], ans: 0 },
+            { sentence: 'I can see the ___ in the sky', opts: ['star ⭐', 'dog 🐶', 'book 📚', 'cup ☕'], ans: 0 },
+            { sentence: 'The dog likes to ___ in the park', opts: ['run 🏃', 'sleep 😴', 'read 📖', 'cook 🍳'], ans: 0 },
+            { sentence: 'She drinks ___ every morning', opts: ['milk 🥛', 'sand 🏖️', 'mud 🌿', 'stone 🪨'], ans: 0 },
+            { sentence: 'The bird has two ___', opts: ['wings 🪶', 'shoes 👟', 'hats 🎩', 'bags 🎒'], ans: 0 },
+          ]
+        }
+      ]
+    },
+
+    maths: {
+      title: '🔢 Maths Activities',
+      color: '#3B82F6',
+      items: [
+        {
+          type: 'mcq',
+          name: '➕ Number Quiz',
+          emoji: '➕',
+          questions: [
+            { q: 'What is 3 + 4? 🍎🍎🍎 + 🍎🍎🍎🍎', opts: ['5', '6', '7', '8'], ans: 2 },
+            { q: 'What is 10 - 3? 🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟 take away 🌟🌟🌟', opts: ['5', '6', '7', '8'], ans: 2 },
+            { q: 'Which number comes after 9?', opts: ['8', '10', '11', '7'], ans: 1 },
+            { q: 'How many sides does a triangle have? 🔺', opts: ['2', '3', '4', '5'], ans: 1 },
+            { q: 'What is 5 + 5? 🖐️ + 🖐️', opts: ['8', '9', '10', '11'], ans: 2 },
+            { q: 'Which is bigger? 🐘 or 🐭', opts: ['🐭 Mouse', '🐘 Elephant', 'They are the same', 'Cannot tell'], ans: 1 },
+          ]
+        },
+        {
+          type: 'shape_quiz',
+          name: '🔷 Shape Explorer',
+          emoji: '🔷',
+          instruction: 'Look at each shape and answer the question!',
+          questions: [
+            { q: 'How many corners does this shape have? 🟨', shape: '🟨', opts: ['2', '3', '4', '5'], ans: 2 },
+            { q: 'What shape is a wheel? 🎡', shape: '🎡', opts: ['Triangle', 'Square', 'Circle', 'Rectangle'], ans: 2 },
+            { q: 'How many sides does this have? 🔺', shape: '🔺', opts: ['2', '3', '4', '6'], ans: 1 },
+            { q: 'Which shape has NO corners?', shape: '', opts: ['Square 🟦', 'Triangle 🔺', 'Circle ⭕', 'Rectangle'], ans: 2 },
+            { q: 'A door is usually what shape?', shape: '🚪', opts: ['Circle ⭕', 'Triangle 🔺', 'Rectangle 🟫', 'Star ⭐'], ans: 2 },
+          ]
+        },
+        {
+          type: 'counting_game',
+          name: '🔢 Count & Tap',
+          emoji: '🔢',
+          instruction: 'Count the emojis and tap the correct number!',
+          questions: [
+            { q: '🍎🍎🍎🍎🍎', opts: ['3', '4', '5', '6'], ans: 2 },
+            { q: '⭐⭐⭐⭐⭐⭐⭐', opts: ['5', '6', '7', '8'], ans: 2 },
+            { q: '🐦🐦🐦', opts: ['2', '3', '4', '5'], ans: 1 },
+            { q: '🌸🌸🌸🌸🌸🌸🌸🌸', opts: ['6', '7', '8', '9'], ans: 2 },
+            { q: '🐠🐠🐠🐠🐠🐠🐠🐠🐠🐠', opts: ['8', '9', '10', '11'], ans: 2 },
+          ]
+        }
+      ]
+    },
+
+    science: {
+      title: '🔬 Science Activities',
+      color: '#10B981',
+      items: [
+        {
+          type: 'mcq',
+          name: '🌱 Plant & Animal Quiz',
+          emoji: '🌱',
+          questions: [
+            { q: 'What do plants need to grow? 🌱', opts: ['Toys 🧸', 'Sunlight ☀️ and water 💧', 'Music 🎵', 'Sand 🏖️'], ans: 1 },
+            { q: 'Which animal lives in water? 🌊', opts: ['Cat 🐱', 'Dog 🐶', 'Fish 🐟', 'Rabbit 🐰'], ans: 2 },
+            { q: 'What do we use to see things far away? 🔭', opts: ['A spoon 🥄', 'A ruler 📏', 'A telescope 🔭', 'A cup ☕'], ans: 2 },
+            { q: 'Which season has snow? ❄️', opts: ['Summer ☀️', 'Spring 🌸', 'Winter ❄️', 'Autumn 🍂'], ans: 2 },
+            { q: 'Where do birds live? 🐦', opts: ['Underground 🕳️', 'In nests 🪺', 'In the sea 🌊', 'In fridges 🧊'], ans: 1 },
+            { q: 'What gives us light and heat? ☀️', opts: ['The Moon 🌙', 'Stars ⭐', 'The Sun ☀️', 'Clouds ☁️'], ans: 2 },
+          ]
+        },
+        {
+          type: 'sort_game',
+          name: '🌡️ Sink or Float?',
+          emoji: '🌡️',
+          instruction: 'Tap each object and decide — does it SINK 🔽 or FLOAT 🔼 in water?',
+          items: [
+            { label: 'Feather 🪶', correct: 'float' },
+            { label: 'Rock 🪨', correct: 'sink' },
+            { label: 'Leaf 🍃', correct: 'float' },
+            { label: 'Metal spoon 🥄', correct: 'sink' },
+            { label: 'Wooden stick 🪵', correct: 'float' },
+            { label: 'Coin 🪙', correct: 'sink' },
+          ]
+        },
+        {
+          type: 'mcq',
+          name: '☀️ Weather & Seasons Quiz',
+          emoji: '☀️',
+          questions: [
+            { q: 'What is the weather like on a sunny day? ☀️', opts: ['Cold and dark 🌑', 'Bright and warm 🌞', 'Rainy and wet 🌧️', 'Snowy and cold ❄️'], ans: 1 },
+            { q: 'Which season do flowers bloom? 🌸', opts: ['Winter ❄️', 'Autumn 🍂', 'Spring 🌸', 'All seasons 🌍'], ans: 2 },
+            { q: 'What falls from clouds during rain? 🌧️', opts: ['Sand 🏖️', 'Leaves 🍃', 'Water drops 💧', 'Snow only ❄️'], ans: 2 },
+            { q: 'What do we wear when it is cold? 🧥', opts: ['Swimsuit 👙', 'Jacket and scarf 🧣', 'Sunglasses 😎', 'Sandals 👡'], ans: 1 },
+            { q: 'How many seasons are there?', opts: ['2', '3', '4', '5'], ans: 2 },
+          ]
+        }
+      ]
+    },
+
+    coding: {
+      title: '💻 Coding Activities',
+      color: '#7C3AED',
+      items: [
+        {
+          type: 'mcq',
+          name: '🤖 Coding Quiz',
+          emoji: '🤖',
+          questions: [
+            { q: 'What does a computer use to think and work?', opts: ['A pencil ✏️', 'A program 💾', 'A spoon 🥄', 'A pillow 🛏️'], ans: 1 },
+            { q: 'Which is an example of giving a computer instructions?', opts: ['Singing a song 🎵', 'Typing a code 💻', 'Drawing a picture ✏️', 'Eating lunch 🍱'], ans: 1 },
+            { q: 'What does FORWARD mean for a robot? 🤖', opts: ['Go backwards ⬅️', 'Stop 🛑', 'Move ahead ➡️', 'Jump up ⬆️'], ans: 2 },
+            { q: 'A computer program is like a...', opts: ['Recipe with steps 📋', 'Painting 🎨', 'Song 🎵', 'Story with no end 📖'], ans: 0 },
+            { q: 'What is a LOOP in coding?', opts: ['A type of circle ⭕', 'Doing something again and again 🔄', 'A break from coding ☕', 'A mistake in code ❌'], ans: 1 },
+          ]
+        },
+        {
+          type: 'sequence_game',
+          name: '🔀 Put the Steps in Order',
+          emoji: '🔀',
+          instruction: 'A robot wants to make a sandwich 🥪. Tap the steps in the CORRECT order 1 → 2 → 3 → 4!',
+          steps: [
+            { text: 'Get two slices of bread 🍞', order: 1 },
+            { text: 'Add cheese and tomato 🧀🍅', order: 2 },
+            { text: 'Put the top bread on 🍞', order: 3 },
+            { text: 'Eat the sandwich 😋', order: 4 },
+          ]
+        },
+        {
+          type: 'direction_game',
+          name: '🗺️ Guide the Robot!',
+          emoji: '🗺️',
+          instruction: 'Help the robot 🤖 reach the star ⭐! Tap the correct direction buttons in order.',
+          levels: [
+            { grid: 4, robotPos: [0,0], starPos: [0,3], solution: ['RIGHT','RIGHT','RIGHT'], label: 'Level 1 — Go Right!' },
+            { grid: 4, robotPos: [3,0], starPos: [0,0], solution: ['UP','UP','UP'], label: 'Level 2 — Go Up!' },
+            { grid: 4, robotPos: [0,0], starPos: [2,2], solution: ['RIGHT','RIGHT','DOWN','DOWN'], label: 'Level 3 — Diagonal!' },
+          ]
+        }
+      ]
+    },
+
+    ai: {
+      title: '🤖 AI Activities',
+      color: '#F97316',
+      items: [
+        {
+          type: 'mcq',
+          name: '🧠 What is AI? Quiz',
+          emoji: '🧠',
+          questions: [
+            { q: 'What does AI stand for?', opts: ['Animal Intelligence 🐘', 'Artificial Intelligence 🤖', 'Amazing Internet 🌐', 'Always Interesting 🌟'], ans: 1 },
+            { q: 'Which is an example of AI helping us?', opts: ['A pencil writing ✏️', 'A phone recognising your face 📱', 'A book on a shelf 📚', 'Rain falling ☔'], ans: 1 },
+            { q: 'How does AI learn?', opts: ['By sleeping 😴', 'By looking at lots of examples 👀', 'By eating 🍕', 'By playing outside 🏃'], ans: 1 },
+            { q: 'Can a robot feel happy or sad?', opts: ['Yes, always! 😊', 'No, robots do not have feelings 🤖', 'Only on weekends 📅', 'Only when it rains 🌧️'], ans: 1 },
+            { q: 'What can AI help doctors do?', opts: ['Cook food 🍳', 'Spot sickness in pictures 🏥', 'Build houses 🏠', 'Write poems 📝'], ans: 1 },
+          ]
+        },
+        {
+          type: 'sort_game',
+          name: '🤖 AI or Not AI?',
+          emoji: '🤔',
+          instruction: 'Tap each example and decide — is it AI 🤖 or NOT AI ❌?',
+          items: [
+            { label: 'Voice assistant on phone 📱', correct: 'AI' },
+            { label: 'A pencil ✏️', correct: 'Not AI' },
+            { label: 'Self-driving car 🚗', correct: 'AI' },
+            { label: 'A wooden chair 🪑', correct: 'Not AI' },
+            { label: 'Face recognition 👤', correct: 'AI' },
+            { label: 'A plain notebook 📒', correct: 'Not AI' },
+          ]
+        },
+        {
+          type: 'mcq',
+          name: '🌍 AI Around Us',
+          emoji: '🌍',
+          questions: [
+            { q: 'When you say "Hey Siri" or "OK Google" — what happens?', opts: ['The phone breaks 📵', 'An AI listens and helps 🎙️', 'Music plays 🎵', 'A game opens 🎮'], ans: 1 },
+            { q: 'AI can help translate words from one language to another — TRUE or FALSE?', opts: ['True ✅', 'False ❌', 'Only sometimes 🤷', 'Only for English 🇬🇧'], ans: 0 },
+            { q: 'What is one good rule when using AI tools?', opts: ['Share all your private info 🔓', 'Always ask a parent or teacher first 👩‍🏫', 'Use it all day without a break ⏰', 'Believe everything it says 📢'], ans: 1 },
+            { q: 'AI in a game can...', opts: ['Feel pain 😢', 'Act as a smart opponent 🎮', 'Eat food 🍕', 'Sleep 😴'], ans: 1 },
+            { q: 'Who creates AI programs?', opts: ['Robots themselves 🤖', 'People called programmers 👩‍💻', 'Animals 🐕', 'The clouds ☁️'], ans: 1 },
+          ]
+        }
+      ]
+    },
+
+    safety: {
+      title: '🛡️ Online Safety Activities',
+      color: '#EF4444',
+      items: [
+        {
+          type: 'mcq',
+          name: '🔒 Stay Safe Quiz',
+          emoji: '🔒',
+          questions: [
+            { q: 'Someone online asks for your home address. What do you do?', opts: ['Tell them 🏠', 'Tell a trusted adult 👨‍👩‍👧', 'Keep it a secret 🤫', 'Guess an address 🤔'], ans: 1 },
+            { q: 'You see something online that makes you feel scared. What should you do?', opts: ['Watch more 👀', 'Tell a parent or teacher 👩‍🏫', 'Share it with friends 📲', 'Ignore it 🙈'], ans: 1 },
+            { q: 'Which is a SAFE password?', opts: ['1234 🔢', 'your name 📝', 'abc123 🔤', 'Sunny!Dog#42 💪'], ans: 3 },
+            { q: 'Is it okay to share your school name with strangers online?', opts: ['Yes, always! ✅', 'No, keep it private 🔒', 'Only on weekdays 📅', 'Only in games 🎮'], ans: 1 },
+            { q: 'If someone is unkind to you online, you should...', opts: ['Be unkind back 😠', 'Tell a trusted adult 🧑‍🏫', 'Delete your device 📵', 'Cry alone 😢'], ans: 1 },
+          ]
+        },
+        {
+          type: 'sort_game',
+          name: '✅ Safe or Unsafe?',
+          emoji: '🛡️',
+          instruction: 'Tap each action and decide — is it SAFE ✅ or UNSAFE ⚠️ online?',
+          items: [
+            { label: 'Tell a stranger your phone number 📞', correct: 'Unsafe' },
+            { label: 'Ask a parent before downloading an app 👨‍👩‍👧', correct: 'Safe' },
+            { label: 'Share your home address online 🏠', correct: 'Unsafe' },
+            { label: 'Use a nickname instead of your real name 🎭', correct: 'Safe' },
+            { label: 'Click on a flashing prize pop-up 🎁', correct: 'Unsafe' },
+            { label: 'Tell a trusted adult if something worries you 🧑‍🏫', correct: 'Safe' },
+          ]
+        },
+        {
+          type: 'mcq',
+          name: '🌐 Digital Citizenship Quiz',
+          emoji: '🌐',
+          questions: [
+            { q: 'What does it mean to be kind online?', opts: ['Post mean comments 😈', 'Use nice words and be respectful 💬', 'Ignore everyone 🙈', 'Share secrets 🤫'], ans: 1 },
+            { q: 'How much screen time is healthy for kids each day?', opts: ['All day every day ⏰', 'No screen time ever 📵', 'A little bit with breaks 🌟', 'Only at night 🌙'], ans: 2 },
+            { q: 'Before you post a photo of a friend online, you should...', opts: ['Just post it! 📸', 'Ask your friend first 🤝', 'Edit their face 😶', 'Delete it always 🗑️'], ans: 1 },
+            { q: 'The internet is...', opts: ['Only for adults 🧑', 'Safe everywhere, always ✅', 'A helpful tool when used wisely 🌍', 'Only for games 🎮'], ans: 2 },
+            { q: 'If a website asks for your age and you are 7, you should...', opts: ['Say you are 18 🤥', 'Ask a parent to help you 👨‍👩‍👧', 'Give a fake birthday 🎂', 'Close the website and ignore it 👋'], ans: 1 },
+          ]
+        }
+      ]
+    },
+
+    canva: {
+      title: '🎨 Canva Design Activities',
+      color: '#7C3AED',
+      items: [
+        {
+          type: 'mcq',
+          name: '🖌️ Colour & Design Quiz',
+          emoji: '🖌️',
+          questions: [
+            { q: 'Which are the PRIMARY colours? 🎨', opts: ['Green, Orange, Purple 🟢🟠🟣', 'Red, Blue, Yellow 🔴🔵🟡', 'Pink, Brown, Grey 🩷🟤⬜', 'Black, White, Gold ⬛⬜🟡'], ans: 1 },
+            { q: 'What do we call the words and letters we see on a poster?', opts: ['Music 🎵', 'Typography 📝', 'Painting 🖼️', 'Sound 🔊'], ans: 1 },
+            { q: 'Which tool helps you make a birthday card on a computer?', opts: ['A hammer 🔨', 'Canva or Word 💻', 'A calculator 🔢', 'A microscope 🔬'], ans: 1 },
+            { q: 'What makes a poster easy to read?', opts: ['Very tiny text 🔎', 'Lots of different fonts 🔤', 'Big clear letters and colours 🎨', 'No pictures at all 🚫'], ans: 2 },
+            { q: 'When designing, what should you think about FIRST?', opts: ['What colour to use 🎨', 'Who will see your design 👀', 'How fast to finish ⏩', 'Which computer to use 💻'], ans: 1 },
+          ]
+        },
+        {
+          type: 'sort_game',
+          name: '🎨 Good Design or Not?',
+          emoji: '✨',
+          instruction: 'Tap each design choice — is it a GOOD idea ✅ or NOT a good idea ❌ for a kids poster?',
+          items: [
+            { label: 'Use big colourful pictures 🖼️', correct: 'Good' },
+            { label: 'Use very tiny text nobody can read 🔎', correct: 'Not Good' },
+            { label: 'Add a clear title at the top 📢', correct: 'Good' },
+            { label: 'Use 10 different fonts on one poster 🔤', correct: 'Not Good' },
+            { label: 'Leave some white space so it looks clean 🤍', correct: 'Good' },
+            { label: 'Put dark text on a dark background 🖤', correct: 'Not Good' },
+          ]
+        },
+        {
+          type: 'fill_blank',
+          name: '✏️ Design Vocabulary',
+          emoji: '🎨',
+          instruction: 'Choose the correct word to complete the design sentence!',
+          questions: [
+            { sentence: 'A ___ is used to add beautiful pictures to a design', opts: ['photo 📸', 'keyboard ⌨️', 'pencil only ✏️', 'ruler 📏'], ans: 0 },
+            { sentence: 'The ___ of a design tells people what it is about', opts: ['title 📢', 'eraser 🧹', 'border 🟦', 'staple 📎'], ans: 0 },
+            { sentence: 'We use ___ to make words look exciting', opts: ['colour 🎨', 'glue 🪣', 'staples 📎', 'rulers 📏'], ans: 0 },
+            { sentence: 'Canva is a ___ tool that helps us design on a screen', opts: ['digital 💻', 'cooking 🍳', 'sleeping 😴', 'sport 🏃'], ans: 0 },
+            { sentence: 'A design that is easy to read uses ___ text', opts: ['clear and big 🔠', 'tiny and grey 🩶', 'invisible 👻', 'upside down 🙃'], ans: 0 },
+          ]
+        }
+      ]
+    }
+
   };
 
+  // ── Activity state ──
+  let currentActivity = null;
+  let activityAnswers = [];
+  let activityCorrect = [];
+  let sortState = {};
+  let seqState = {};
+  let dirState = {};
 
   function openModal(key) {
-    const data = modalData[key];
-    document.getElementById('modal-title').innerHTML = data.title;
-    document.getElementById('modal-body').innerHTML = data.items.map(item => `
-      <a class="res-card" href="${item.url}" target="_blank" rel="noopener">
-        <span class="res-icon">${item.icon}</span>
-        <div class="res-info">
-          <div class="res-name">${item.name}</div>
-          <div class="res-desc">${item.desc}</div>
-          <span class="res-tag ${item.tag}">${item.label}</span>
-        </div>
-        <span class="res-arrow">→</span>
-      </a>`).join('');
+    const topic = ACTIVITIES[key];
+    if (!topic) return;
+    const accentColor = topic.color;
+    document.getElementById('modal-title').innerHTML = topic.title;
+    document.getElementById('modal-title').style.background = `linear-gradient(90deg, ${accentColor}, #EC4899)`;
+    document.getElementById('modal-title').style.webkitBackgroundClip = 'text';
+    document.getElementById('modal-title').style.webkitTextFillColor = 'transparent';
+    document.getElementById('modal-title').style.backgroundClip = 'text';
+
+    // Show activity menu
+    document.getElementById('modal-body').innerHTML = `
+      <p style="font-size:0.9rem;color:#6B7280;margin-bottom:1rem;">Choose an activity to start! 👇</p>
+      ${topic.items.map((act, i) => `
+        <div onclick="startActivity('${key}',${i})" style="
+          display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;
+          background:#FAFAFA;border:2px solid #F3F4F6;border-radius:16px;
+          margin-bottom:0.8rem;cursor:pointer;transition:all 0.2s;
+        " onmouseover="this.style.borderColor='${accentColor}';this.style.background='#F5F3FF'"
+           onmouseout="this.style.borderColor='#F3F4F6';this.style.background='#FAFAFA'">
+          <span style="font-size:2rem;">${act.emoji}</span>
+          <div style="flex:1;">
+            <div style="font-family:'Nunito',sans-serif;font-weight:900;font-size:1rem;color:#1E1B4B;">${act.name}</div>
+            <div style="font-size:0.82rem;color:#6B7280;margin-top:0.2rem;">${getActivityTypeLabel(act.type)}</div>
+          </div>
+          <span style="font-size:1.3rem;color:${accentColor};">▶</span>
+        </div>`).join('')}`;
+
     document.getElementById('modal-overlay').style.display = 'block';
     const box = document.getElementById('modal-box');
     box.style.display = 'block';
     requestAnimationFrame(() => { box.style.opacity='1'; box.style.transform='translate(-50%,-50%) scale(1)'; });
     document.body.style.overflow = 'hidden';
   }
+
+  function getActivityTypeLabel(type) {
+    const map = { mcq:'Multiple Choice Quiz 🎯', passage_quiz:'Read & Answer 📖', word_match:'Word Match Game 🌈', fill_blank:'Fill in the Blanks ✏️', sort_game:'Sort & Decide Game 🃏', sequence_game:'Put in Order 🔀', counting_game:'Count & Tap 🔢', direction_game:'Direction Puzzle 🗺️', shape_quiz:'Shape Quiz 🔷' };
+    return map[type] || 'Activity';
+  }
+
+  function startActivity(topicKey, idx) {
+    currentActivity = { topicKey, idx };
+    const act = ACTIVITIES[topicKey].items[idx];
+    const color = ACTIVITIES[topicKey].color;
+    activityAnswers = [];
+    activityCorrect = [];
+    sortState = {};
+    seqState = { order: [], steps: act.steps ? [...act.steps].sort(() => Math.random()-0.5) : [] };
+    dirState = { level: 0, sequence: [], robotPos: null };
+
+    let html = `
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:1rem;">
+        <button onclick="openModal('${topicKey}')" style="background:none;border:none;color:${color};font-size:0.9rem;cursor:pointer;font-family:'Nunito',sans-serif;font-weight:800;">← Back</button>
+      </div>
+      <h3 style="font-family:'Nunito',sans-serif;font-weight:900;font-size:1.2rem;color:#1E1B4B;margin-bottom:0.3rem;">${act.name}</h3>`;
+
+    if (act.type === 'passage_quiz') {
+      html += renderPassageQuiz(act, color);
+    } else if (act.type === 'mcq' || act.type === 'counting_game' || act.type === 'shape_quiz') {
+      html += renderMCQ(act, color);
+    } else if (act.type === 'word_match') {
+      html += renderWordMatch(act, color);
+    } else if (act.type === 'fill_blank') {
+      html += renderFillBlank(act, color);
+    } else if (act.type === 'sort_game') {
+      html += renderSortGame(act, color);
+    } else if (act.type === 'sequence_game') {
+      html += renderSequenceGame(act, color);
+    } else if (act.type === 'direction_game') {
+      html += renderDirectionGame(act, color, 0);
+    }
+    document.getElementById('modal-body').innerHTML = html;
+    if (act.type === 'word_match') initWordMatch(act);
+    if (act.type === 'direction_game') initDirectionGame(act, color);
+  }
+
+  // ── MCQ / Counting / Shape ──
+  function renderMCQ(act, color) {
+    const qs = act.passage ? act.questions : act.questions;
+    return `
+      ${act.instruction ? `<p style="font-size:0.88rem;color:#6B7280;margin-bottom:1rem;">${act.instruction}</p>` : ''}
+      <div id="mcq-container">
+        ${qs.map((q, qi) => `
+          <div class="q-block" id="qb-${qi}" style="background:#FAFAFA;border:2px solid #F3F4F6;border-radius:14px;padding:1rem;margin-bottom:0.9rem;">
+            <p style="font-family:'Nunito',sans-serif;font-weight:800;font-size:0.95rem;color:#1E1B4B;margin-bottom:0.7rem;">${qi+1}. ${q.q}</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
+              ${q.opts.map((opt, oi) => `
+                <button onclick="pickMCQ(${qi},${oi},${q.ans},'${color}')" id="opt-${qi}-${oi}"
+                  style="padding:0.5rem 0.7rem;border:2px solid #E5E7EB;border-radius:10px;background:#fff;
+                  font-family:'Nunito',sans-serif;font-weight:700;font-size:0.82rem;cursor:pointer;
+                  text-align:left;transition:all 0.2s;color:#374151;">
+                  ${opt}
+                </button>`).join('')}
+            </div>
+            <div id="fb-${qi}" style="display:none;margin-top:0.5rem;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.88rem;"></div>
+          </div>`).join('')}
+        <button onclick="submitMCQ(${qs.length})" id="submit-mcq"
+          style="width:100%;padding:0.8rem;background:linear-gradient(90deg,${color},#EC4899);color:#fff;border:none;
+          border-radius:50px;font-family:'Nunito',sans-serif;font-weight:900;font-size:1rem;cursor:pointer;margin-top:0.5rem;">
+          ✅ Check My Answers!
+        </button>
+      </div>`;
+  }
+
+  function pickMCQ(qi, oi, correct, color) {
+    // Deselect others in this question
+    for (let i = 0; i < 4; i++) {
+      const b = document.getElementById(`opt-${qi}-${i}`);
+      if (b) { b.style.background='#fff'; b.style.borderColor='#E5E7EB'; b.style.color='#374151'; }
+    }
+    const btn = document.getElementById(`opt-${qi}-${oi}`);
+    if (btn) { btn.style.background = color + '22'; btn.style.borderColor = color; btn.style.color = color; }
+    activityAnswers[qi] = oi;
+  }
+
+  function submitMCQ(total) {
+    const act = ACTIVITIES[currentActivity.topicKey].items[currentActivity.idx];
+    const qs = act.questions;
+    let score = 0;
+    const wrong = [];
+    qs.forEach((q, qi) => {
+      const chosen = activityAnswers[qi];
+      const fb = document.getElementById(`fb-${qi}`);
+      const block = document.getElementById(`qb-${qi}`);
+      if (chosen === undefined) {
+        if (fb) { fb.style.display='block'; fb.innerHTML='⚠️ Not answered yet!'; fb.style.color='#F97316'; }
+        return;
+      }
+      if (chosen === q.ans) {
+        score++;
+        if (fb) { fb.style.display='block'; fb.innerHTML='✅ Correct! Well done!'; fb.style.color='#10B981'; }
+        if (block) block.style.borderColor='#10B981';
+        // Green highlight correct
+        const cb = document.getElementById(`opt-${qi}-${chosen}`);
+        if (cb) { cb.style.background='#ECFDF5'; cb.style.borderColor='#10B981'; cb.style.color='#059669'; }
+      } else {
+        wrong.push({ q: q.q, yours: q.opts[chosen] || '—', correct: q.opts[q.ans] });
+        if (fb) { fb.style.display='block'; fb.innerHTML=`❌ The answer is: <strong>${q.opts[q.ans]}</strong>`; fb.style.color='#EF4444'; }
+        if (block) block.style.borderColor='#EF4444';
+        const wb = document.getElementById(`opt-${qi}-${chosen}`);
+        if (wb) { wb.style.background='#FEF2F2'; wb.style.borderColor='#EF4444'; wb.style.color='#EF4444'; }
+        const rb = document.getElementById(`opt-${qi}-${q.ans}`);
+        if (rb) { rb.style.background='#ECFDF5'; rb.style.borderColor='#10B981'; rb.style.color='#059669'; }
+      }
+    });
+    showReport(score, total, wrong);
+  }
+
+  // ── PASSAGE QUIZ ──
+  function renderPassageQuiz(act, color) {
+    return `
+      <div style="background:linear-gradient(135deg,#F5F3FF,#FFF0F9);border-radius:14px;padding:1.1rem;margin-bottom:1rem;border-left:4px solid ${color};">
+        <p style="font-size:0.82rem;font-weight:800;color:${color};letter-spacing:1px;text-transform:uppercase;margin-bottom:0.5rem;">📖 Read this story</p>
+        <p style="font-size:0.92rem;color:#374151;line-height:1.9;">${act.passage}</p>
+      </div>
+      ${renderMCQ(act, color)}`;
+  }
+
+  // ── FILL IN THE BLANK ──
+  function renderFillBlank(act, color) {
+    return `
+      <p style="font-size:0.88rem;color:#6B7280;margin-bottom:1rem;">${act.instruction}</p>
+      <div>
+        ${act.questions.map((q, qi) => `
+          <div id="fb-block-${qi}" style="background:#FAFAFA;border:2px solid #F3F4F6;border-radius:14px;padding:1rem;margin-bottom:0.9rem;">
+            <p style="font-family:'Nunito',sans-serif;font-weight:800;font-size:0.95rem;color:#1E1B4B;margin-bottom:0.7rem;">${qi+1}. ${q.sentence.replace('___','<span style="color:${color};font-weight:900;">___</span>')}</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
+              ${q.opts.map((opt,oi)=>`
+                <button onclick="pickFB(${qi},${oi},${q.ans},'${color}')" id="fbo-${qi}-${oi}"
+                  style="padding:0.5rem 0.7rem;border:2px solid #E5E7EB;border-radius:10px;background:#fff;
+                  font-family:'Nunito',sans-serif;font-weight:700;font-size:0.82rem;cursor:pointer;text-align:left;color:#374151;transition:all 0.2s;">
+                  ${opt}
+                </button>`).join('')}
+            </div>
+            <div id="fbr-${qi}" style="display:none;margin-top:0.5rem;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.88rem;"></div>
+          </div>`).join('')}
+        <button onclick="submitFB(${act.questions.length})"
+          style="width:100%;padding:0.8rem;background:linear-gradient(90deg,${color},#EC4899);color:#fff;border:none;
+          border-radius:50px;font-family:'Nunito',sans-serif;font-weight:900;font-size:1rem;cursor:pointer;margin-top:0.5rem;">
+          ✅ Check My Answers!
+        </button>
+      </div>`;
+  }
+
+  const fbAnswers = {};
+  function pickFB(qi, oi, correct, color) {
+    for (let i=0;i<4;i++) { const b=document.getElementById(`fbo-${qi}-${i}`); if(b){b.style.background='#fff';b.style.borderColor='#E5E7EB';b.style.color='#374151';} }
+    const btn=document.getElementById(`fbo-${qi}-${oi}`);
+    if(btn){btn.style.background=color+'22';btn.style.borderColor=color;btn.style.color=color;}
+    fbAnswers[qi]=oi;
+  }
+  function submitFB(total) {
+    const act = ACTIVITIES[currentActivity.topicKey].items[currentActivity.idx];
+    let score=0; const wrong=[];
+    act.questions.forEach((q,qi)=>{
+      const chosen=fbAnswers[qi];
+      const fb=document.getElementById(`fbr-${qi}`);
+      const block=document.getElementById(`fb-block-${qi}`);
+      if(chosen===undefined){if(fb){fb.style.display='block';fb.innerHTML='⚠️ Not answered!';fb.style.color='#F97316';}return;}
+      if(chosen===q.ans){
+        score++;
+        if(fb){fb.style.display='block';fb.innerHTML='✅ Correct!';fb.style.color='#10B981';}
+        if(block)block.style.borderColor='#10B981';
+        const cb=document.getElementById(`fbo-${qi}-${chosen}`);if(cb){cb.style.background='#ECFDF5';cb.style.borderColor='#10B981';cb.style.color='#059669';}
+      } else {
+        wrong.push({q:q.sentence,yours:q.opts[chosen]||'—',correct:q.opts[q.ans]});
+        if(fb){fb.style.display='block';fb.innerHTML=`❌ Answer: <strong>${q.opts[q.ans]}</strong>`;fb.style.color='#EF4444';}
+        if(block)block.style.borderColor='#EF4444';
+        const wb=document.getElementById(`fbo-${qi}-${chosen}`);if(wb){wb.style.background='#FEF2F2';wb.style.borderColor='#EF4444';wb.style.color='#EF4444';}
+        const rb=document.getElementById(`fbo-${qi}-${q.ans}`);if(rb){rb.style.background='#ECFDF5';rb.style.borderColor='#10B981';rb.style.color='#059669';}
+      }
+    });
+    showReport(score, total, wrong);
+  }
+
+  // ── WORD MATCH ──
+  function renderWordMatch(act, color) {
+    const shuffledEmojis = [...act.pairs].sort(()=>Math.random()-0.5);
+    return `
+      <p style="font-size:0.88rem;color:#6B7280;margin-bottom:1rem;">${act.instruction}</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
+        <div>
+          <p style="font-family:'Nunito',sans-serif;font-weight:900;font-size:0.8rem;color:#9CA3AF;letter-spacing:1px;text-transform:uppercase;margin-bottom:0.5rem;">Words</p>
+          ${act.pairs.map((p,i)=>`
+            <button onclick="selectWord(${i},'${color}')" id="word-${i}"
+              style="display:block;width:100%;padding:0.6rem 0.8rem;margin-bottom:0.5rem;border:2px solid #E5E7EB;
+              border-radius:10px;background:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.9rem;
+              cursor:pointer;text-align:left;color:#374151;transition:all 0.2s;">
+              ${p.word}
+            </button>`).join('')}
+        </div>
+        <div>
+          <p style="font-family:'Nunito',sans-serif;font-weight:900;font-size:0.8rem;color:#9CA3AF;letter-spacing:1px;text-transform:uppercase;margin-bottom:0.5rem;">Pictures</p>
+          ${shuffledEmojis.map((p,i)=>`
+            <button onclick="selectEmoji(${i},'${p.word}','${color}')" id="emoji-${i}" data-word="${p.word}"
+              style="display:block;width:100%;padding:0.6rem 0.8rem;margin-bottom:0.5rem;border:2px solid #E5E7EB;
+              border-radius:10px;background:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:1.2rem;
+              cursor:pointer;text-align:center;transition:all 0.2s;">
+              ${p.emoji}
+            </button>`).join('')}
+        </div>
+      </div>
+      <div id="match-score" style="text-align:center;font-family:'Nunito',sans-serif;font-weight:900;font-size:1.1rem;color:${color};"></div>`;
+  }
+
+  let selectedWord = null;
+  let matchScore = 0;
+  let matchTotal = 0;
+  let matchWrong = [];
+  function initWordMatch(act) { matchScore=0; matchTotal=act.pairs.length; matchWrong=[]; selectedWord=null; }
+  function selectWord(idx, color) {
+    document.querySelectorAll('[id^="word-"]').forEach(b=>{b.style.borderColor='#E5E7EB';b.style.background='#fff';});
+    const b=document.getElementById(`word-${idx}`);
+    if(b){b.style.borderColor=color;b.style.background=color+'22';}
+    selectedWord={idx,word:ACTIVITIES[currentActivity.topicKey].items[currentActivity.idx].pairs[idx].word};
+  }
+  function selectEmoji(idx, word, color) {
+    if(!selectedWord)return;
+    const emojiBtn=document.getElementById(`emoji-${idx}`);
+    const wordBtn=document.getElementById(`word-${selectedWord.idx}`);
+    if(selectedWord.word===word){
+      matchScore++;
+      if(emojiBtn){emojiBtn.style.background='#ECFDF5';emojiBtn.style.borderColor='#10B981';emojiBtn.disabled=true;}
+      if(wordBtn){wordBtn.style.background='#ECFDF5';wordBtn.style.borderColor='#10B981';wordBtn.disabled=true;}
+      if(matchScore===matchTotal){
+        document.getElementById('match-score').innerHTML=`🎉 Amazing! You matched all ${matchTotal}/${matchTotal}!`;
+        setTimeout(()=>showReport(matchTotal,matchTotal,[]),800);
+      } else {
+        document.getElementById('match-score').innerHTML=`✅ ${matchScore} matched so far! Keep going!`;
+      }
+    } else {
+      matchWrong.push({q:`Match: "${selectedWord.word}"`,yours:word,correct:selectedWord.word});
+      if(emojiBtn){emojiBtn.style.background='#FEF2F2';emojiBtn.style.borderColor='#EF4444';}
+      setTimeout(()=>{if(emojiBtn&&!emojiBtn.disabled){emojiBtn.style.background='#fff';emojiBtn.style.borderColor='#E5E7EB';}},500);
+      document.getElementById('match-score').innerHTML=`❌ Try again! ${matchScore}/${matchTotal} matched`;
+    }
+    selectedWord=null;
+    document.querySelectorAll('[id^="word-"]').forEach(b=>{if(!b.disabled){b.style.borderColor='#E5E7EB';b.style.background='#fff';}});
+  }
+
+  // ── SORT GAME (Sink/Float, Safe/Unsafe, AI/Not AI, Good/Not Good) ──
+  function renderSortGame(act, color) {
+    const opts = [...new Set(act.items.map(i=>i.correct))];
+    const btnColors = { 'float':'#3B82F6','sink':'#6B7280','Safe':'#10B981','Unsafe':'#EF4444','AI':'#7C3AED','Not AI':'#9CA3AF','Good':'#10B981','Not Good':'#EF4444' };
+    const shuffled = [...act.items].sort(()=>Math.random()-0.5);
+    return `
+      <p style="font-size:0.88rem;color:#6B7280;margin-bottom:1rem;">${act.instruction}</p>
+      <div id="sort-items" style="display:flex;flex-direction:column;gap:0.7rem;"></div>
+      <div id="sort-result" style="margin-top:1rem;"></div>
+      <script>
+        (function(){
+          const items=${JSON.stringify(shuffled)};
+          const opts=${JSON.stringify(opts)};
+          const bc=${JSON.stringify(btnColors)};
+          const container=document.getElementById('sort-items');
+          let answers={}, done=0;
+          items.forEach((item,i)=>{
+            const div=document.createElement('div');
+            div.style.cssText='background:#FAFAFA;border:2px solid #F3F4F6;border-radius:12px;padding:0.8rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:0.8rem;flex-wrap:wrap;';
+            div.innerHTML='<span style="font-family:Nunito,sans-serif;font-weight:700;font-size:0.9rem;color:#374151;flex:1;">'+item.label+'</span>'+
+              opts.map(opt=>'<button onclick="sortPick('+i+',\\''+opt+'\\',\\''+item.correct+'\\',this)" style="padding:0.38rem 0.9rem;border:2px solid #E5E7EB;border-radius:50px;background:#fff;font-family:Nunito,sans-serif;font-weight:800;font-size:0.8rem;cursor:pointer;color:#374151;transition:all 0.2s;">'+opt+'</button>').join('');
+            div.id='sort-item-'+i;
+            container.appendChild(div);
+          });
+          window._sortItems=items; window._sortDone=0; window._sortScore=0; window._sortWrong=[];
+          window.sortPick=function(i,choice,correct,btn){
+            const row=document.getElementById('sort-item-'+i);
+            if(row.dataset.done)return;
+            row.dataset.done='1'; window._sortDone++;
+            const isRight=choice===correct;
+            if(isRight){window._sortScore++;}else{window._sortWrong.push({q:window._sortItems[i].label,yours:choice,correct:correct});}
+            Array.from(row.querySelectorAll('button')).forEach(b=>{
+              b.style.background='#F3F4F6';b.style.color='#9CA3AF';b.disabled=true;
+            });
+            btn.style.background=isRight?'#ECFDF5':'#FEF2F2';
+            btn.style.borderColor=isRight?'#10B981':'#EF4444';
+            btn.style.color=isRight?'#059669':'#EF4444';
+            row.style.borderColor=isRight?'#10B981':'#EF4444';
+            if(!isRight){
+              const rb=Array.from(row.querySelectorAll('button')).find(b=>b.textContent.trim()===correct);
+              if(rb){rb.style.background='#ECFDF5';rb.style.borderColor='#10B981';rb.style.color='#059669';}
+            }
+            if(window._sortDone===${act.items.length}){
+              setTimeout(()=>showReport(window._sortScore,${act.items.length},window._sortWrong),600);
+            }
+          };
+        })();
+      <\/script>`;
+  }
+
+  // ── SEQUENCE GAME ──
+  function renderSequenceGame(act, color) {
+    const shuffled = [...act.steps].sort(()=>Math.random()-0.5);
+    return `
+      <p style="font-size:0.88rem;color:#6B7280;margin-bottom:1rem;">${act.instruction}</p>
+      <p style="font-family:'Nunito',sans-serif;font-weight:800;font-size:0.85rem;color:${color};margin-bottom:0.8rem;">Tap the steps in order 1 → 2 → 3 → 4:</p>
+      <div id="seq-items" style="display:flex;flex-direction:column;gap:0.6rem;">
+        ${shuffled.map((s,i)=>`
+          <button onclick="seqPick(${i},${s.order},'${color}')" id="seq-${i}"
+            style="padding:0.7rem 1rem;border:2px solid #E5E7EB;border-radius:12px;background:#fff;
+            font-family:'Nunito',sans-serif;font-weight:700;font-size:0.88rem;cursor:pointer;
+            text-align:left;color:#374151;transition:all 0.2s;">
+            ${s.text}
+          </button>`).join('')}
+      </div>
+      <div id="seq-progress" style="margin-top:0.8rem;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.9rem;color:${color};"></div>`;
+  }
+
+  let seqExpected = 1;
+  let seqScore = 0;
+  let seqWrong = [];
+  let seqTotalSteps = 0;
+  function initSeqGame(act) { seqExpected=1; seqScore=0; seqWrong=[]; seqTotalSteps=act.steps.length; }
+
+  function seqPick(i, order, color) {
+    const btn = document.getElementById(`seq-${i}`);
+    const act = ACTIVITIES[currentActivity.topicKey].items[currentActivity.idx];
+    if (!btn || btn.disabled) return;
+    if (order === seqExpected) {
+      btn.style.background='#ECFDF5'; btn.style.borderColor='#10B981'; btn.style.color='#059669';
+      btn.disabled=true; seqScore++; seqExpected++;
+      document.getElementById('seq-progress').innerHTML=`✅ Step ${order} correct! ${seqExpected <= act.steps.length ? 'Now tap step '+seqExpected+'!' : ''}`;
+      if (seqExpected > act.steps.length) {
+        setTimeout(()=>showReport(seqScore, act.steps.length, seqWrong), 600);
+      }
+    } else {
+      btn.style.background='#FEF2F2'; btn.style.borderColor='#EF4444'; btn.style.color='#EF4444';
+      seqWrong.push({q:`Step ${seqExpected}`,yours:act.steps.find(s=>s.order===order)?.text||'?',correct:act.steps.find(s=>s.order===seqExpected)?.text||'?'});
+      document.getElementById('seq-progress').innerHTML=`❌ Not step ${seqExpected}! Try again — find step ${seqExpected}.`;
+      setTimeout(()=>{ btn.style.background='#fff'; btn.style.borderColor='#E5E7EB'; btn.style.color='#374151'; }, 600);
+    }
+  }
+
+  // ── DIRECTION GAME ──
+  function renderDirectionGame(act, color, levelIdx) {
+    const lv = act.levels[levelIdx];
+    const G = lv.grid;
+    let robotRow = lv.robotPos[0], robotCol = lv.robotPos[1];
+    const starRow = lv.starPos[0], starCol = lv.starPos[1];
+    let grid = '';
+    for (let r=0;r<G;r++) {
+      for (let c=0;c<G;c++) {
+        const isRobot = r===robotRow && c===robotCol;
+        const isStar = r===starRow && c===starCol;
+        grid += `<div id="cell-${r}-${c}" style="width:60px;height:60px;border:1.5px solid #E5E7EB;border-radius:8px;
+          background:${isRobot?'#EDE9FE':isStar?'#FFFBEB':'#FAFAFA'};
+          display:flex;align-items:center;justify-content:center;font-size:1.6rem;transition:all 0.3s;">
+          ${isRobot?'🤖':isStar?'⭐':''}
+        </div>`;
+      }
+    }
+    return `
+      <p style="font-size:0.88rem;color:#6B7280;margin-bottom:0.5rem;">${act.instruction}</p>
+      <p style="font-family:'Nunito',sans-serif;font-weight:800;font-size:0.88rem;color:${color};margin-bottom:0.8rem;">${lv.label}</p>
+      <div id="dir-grid" style="display:grid;grid-template-columns:repeat(${G},60px);gap:4px;margin:0 auto 1rem;width:fit-content;">${grid}</div>
+      <div style="display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:0.8rem;">
+        <button onclick="moveRobot('UP','${color}',${levelIdx})" style="${dirBtnStyle(color)}">⬆️ UP</button>
+        <button onclick="moveRobot('DOWN','${color}',${levelIdx})" style="${dirBtnStyle(color)}">⬇️ DOWN</button>
+        <button onclick="moveRobot('LEFT','${color}',${levelIdx})" style="${dirBtnStyle(color)}">⬅️ LEFT</button>
+        <button onclick="moveRobot('RIGHT','${color}',${levelIdx})" style="${dirBtnStyle(color)}">➡️ RIGHT</button>
+      </div>
+      <div id="dir-msg" style="text-align:center;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.9rem;"></div>`;
+  }
+  function dirBtnStyle(color) {
+    return `padding:0.5rem 1rem;border:2px solid ${color};border-radius:50px;background:#fff;color:${color};font-family:'Nunito',sans-serif;font-weight:800;font-size:0.85rem;cursor:pointer;transition:all 0.15s;`;
+  }
+  let dirRobot = { r:0, c:0 };
+  let dirLevelIdx = 0;
+  let dirMoves = 0;
+  function initDirectionGame(act, color) { dirRobot={r:act.levels[0].robotPos[0],c:act.levels[0].robotPos[1]}; dirLevelIdx=0; dirMoves=0; }
+  function moveRobot(dir, color, levelIdx) {
+    const act = ACTIVITIES[currentActivity.topicKey].items[currentActivity.idx];
+    const lv = act.levels[levelIdx];
+    const G = lv.grid;
+    const prev = {...dirRobot};
+    if(dir==='UP'&&dirRobot.r>0) dirRobot.r--;
+    else if(dir==='DOWN'&&dirRobot.r<G-1) dirRobot.r++;
+    else if(dir==='LEFT'&&dirRobot.c>0) dirRobot.c--;
+    else if(dir==='RIGHT'&&dirRobot.c<G-1) dirRobot.c++;
+    dirMoves++;
+    // Update grid cells
+    for(let r=0;r<G;r++) for(let c=0;c<G;c++) {
+      const cell=document.getElementById(`cell-${r}-${c}`);
+      if(!cell)continue;
+      const isRobot=r===dirRobot.r&&c===dirRobot.c;
+      const isStar=r===lv.starPos[0]&&c===lv.starPos[1];
+      cell.style.background=isRobot?'#EDE9FE':isStar?'#FFFBEB':'#FAFAFA';
+      cell.innerHTML=isRobot?'🤖':isStar?'⭐':'';
+    }
+    const msg=document.getElementById('dir-msg');
+    if(dirRobot.r===lv.starPos[0]&&dirRobot.c===lv.starPos[1]) {
+      if(msg) msg.innerHTML=`⭐ You found the star in ${dirMoves} moves! 🎉`;
+      if(levelIdx+1 < act.levels.length) {
+        setTimeout(()=>{
+          dirLevelIdx++; dirMoves=0;
+          const nextLv=act.levels[dirLevelIdx];
+          dirRobot={r:nextLv.robotPos[0],c:nextLv.robotPos[1]};
+          document.getElementById('modal-body').innerHTML += '';
+          // Re-render next level
+          const container=document.getElementById('modal-body');
+          const back=container.querySelector('button');
+          const h3=container.querySelector('h3');
+          container.innerHTML = (back?back.outerHTML:'') + (h3?h3.outerHTML:'') + renderDirectionGame(act,color,dirLevelIdx);
+        }, 1000);
+      } else {
+        setTimeout(()=>showReport(act.levels.length, act.levels.length, []),1000);
+      }
+    } else {
+      if(msg) msg.innerHTML=`Moved ${dir}! Keep going 🤖 (${dirMoves} moves)`;
+    }
+  }
+
+  // ── REPORT ──
+  function showReport(score, total, wrong) {
+    const pct = Math.round((score/total)*100);
+    const stars = pct>=80?'⭐⭐⭐':pct>=60?'⭐⭐':'⭐';
+    const msg = pct===100?'🏆 Perfect score! You are a superstar!'
+      :pct>=80?'🎉 Amazing work! Almost perfect!'
+      :pct>=60?'👍 Good job! Keep practising!'
+      :'💪 Keep trying! You can do it!';
+    const wrongHTML = wrong.length ? `
+      <div style="margin-top:1rem;background:#FEF2F2;border:2px solid #FECACA;border-radius:12px;padding:1rem;">
+        <p style="font-family:'Nunito',sans-serif;font-weight:900;font-size:0.9rem;color:#EF4444;margin-bottom:0.6rem;">❌ Let's review these:</p>
+        ${wrong.map(w=>`
+          <div style="margin-bottom:0.6rem;padding:0.5rem 0.7rem;background:#fff;border-radius:8px;font-size:0.82rem;">
+            <p style="font-weight:700;color:#374151;margin-bottom:0.25rem;">Q: ${w.q}</p>
+            <p style="color:#EF4444;">Your answer: ${w.yours}</p>
+            <p style="color:#10B981;font-weight:700;">✅ Correct: ${w.correct}</p>
+          </div>`).join('')}
+      </div>` : `<div style="margin-top:1rem;background:#ECFDF5;border:2px solid #A7F3D0;border-radius:12px;padding:0.8rem;text-align:center;font-family:'Nunito',sans-serif;font-weight:800;color:#059669;">✅ No mistakes! You got everything right!</div>`;
+
+    const topicKey = currentActivity.topicKey;
+    const actIdx = currentActivity.idx;
+    const reportHTML = `
+      <div style="text-align:center;padding:1rem 0;">
+        <div style="font-size:3rem;margin-bottom:0.5rem;">${stars}</div>
+        <h3 style="font-family:'Nunito',sans-serif;font-weight:900;font-size:1.5rem;color:#1E1B4B;margin-bottom:0.3rem;">${score}/${total} Correct!</h3>
+        <p style="font-size:1rem;color:#6B7280;margin-bottom:0.3rem;">${msg}</p>
+        <div style="display:inline-block;background:linear-gradient(90deg,#FBBF24,#F97316);color:#fff;
+          border-radius:50px;padding:0.3rem 1.2rem;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.9rem;margin-bottom:0.5rem;">
+          ${pct}% Score
+        </div>
+      </div>
+      ${wrongHTML}
+      <div style="display:flex;gap:0.8rem;margin-top:1.2rem;flex-wrap:wrap;justify-content:center;">
+        <button onclick="startActivity('${topicKey}',${actIdx})" style="padding:0.65rem 1.4rem;background:linear-gradient(90deg,#7C3AED,#EC4899);color:#fff;border:none;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:900;font-size:0.9rem;cursor:pointer;">🔄 Try Again</button>
+        <button onclick="openModal('${topicKey}')" style="padding:0.65rem 1.4rem;background:#F3F4F6;color:#374151;border:none;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:900;font-size:0.9rem;cursor:pointer;">📚 More Activities</button>
+      </div>`;
+
+    document.getElementById('modal-body').innerHTML = reportHTML;
+  }
+
   function closeModal() {
     const box = document.getElementById('modal-box');
     box.style.opacity='0'; box.style.transform='translate(-50%,-50%) scale(0.92)';
     setTimeout(() => { box.style.display='none'; document.getElementById('modal-overlay').style.display='none'; document.body.style.overflow=''; }, 220);
   }
+
 
 
   // ── CERTIFICATE DOWNLOAD ──
