@@ -165,17 +165,8 @@
   /* ── KS1 CONTAINER ── */
   #ks1-app { display: none; position: fixed; inset: 0; z-index: 50; background: #FAFAFA; }
 
-  /* ── KS1 BACK BUTTON (floats above KS1 content) ── */
-  #ks1-back {
-    position: fixed; top: 14px; left: 14px; z-index: 300;
-    background: rgba(255,255,255,0.22); border: 2px solid rgba(255,255,255,0.45);
-    color: #fff; border-radius: 50px;
-    font-family: "Nunito", sans-serif; font-weight: 900; font-size: 0.75rem;
-    padding: 0.28rem 0.8rem; cursor: pointer; white-space: nowrap;
-    display: none; align-items: center; gap: 0.3rem;
-    transition: background 0.2s;
-  }
-  #ks1-back:hover { background: rgba(255,255,255,0.38); }
+  /* ── KS1 BACK BUTTON — hidden, nav handles Home ── */
+  #ks1-back { display: none !important; }
 
   @media (max-width: 600px) {
     body { overflow-y: auto; justify-content: flex-start; }
@@ -1408,7 +1399,7 @@
 <div id="ks1-app" style="display:none;position:fixed;inset:0;z-index:50;background:#FAFAFA;">
 <!-- TOP NAV -->
 <nav class="top-nav">
-  <div style="display:flex;align-items:center;gap:0.6rem;flex-shrink:0;"><button onclick="window.parent.goBack &amp;&amp; window.parent.goBack()" style="background:rgba(255,255,255,0.2);border:1.5px solid rgba(255,255,255,0.4);color:#fff;border-radius:50px;padding:0.22rem 0.75rem;font-family:Nunito,sans-serif;font-weight:900;font-size:0.72rem;cursor:pointer;white-space:nowrap;">⬅ Home</button><div class="nav-logo">🚀 KS1 · Summer Learning</div></div>
+  <div style="display:flex;align-items:center;gap:0.6rem;flex-shrink:0;"><button onclick="goHome()" style="background:rgba(255,255,255,0.2);border:1.5px solid rgba(255,255,255,0.4);color:#fff;border-radius:50px;padding:0.22rem 0.75rem;font-family:Nunito,sans-serif;font-weight:900;font-size:0.72rem;cursor:pointer;white-space:nowrap;">⬅ Home</button><div class="nav-logo">🚀 KS1 · Summer Learning</div></div>
   <ul>
     <li><button onclick="goTo(0)" class="active" id="nav-0">🏠 Home</button></li>
     <li><button onclick="goTo(1)" id="nav-1">🗓️ Challenges</button></li>
@@ -4694,8 +4685,36 @@ document.addEventListener('DOMContentLoaded', function() {
           <div style="background:linear-gradient(135deg,#FFF8E7,#FFF0F9);border-radius:18px;padding:1.3rem 1.2rem 1.5rem;margin-bottom:1.2rem;border:3px solid ${color}33;text-align:center;">
             ${act.picture ? `<div style="font-size:5rem;margin-bottom:0.6rem;line-height:1;">${act.picture}</div>` : ''}
             <p style="font-size:0.75rem;font-weight:900;color:${color};letter-spacing:1.5px;text-transform:uppercase;margin-bottom:0.8rem;">📖 Read and listen!</p>
-            <div style="text-align:left;display:inline-block;max-width:360px;width:100%;">
-              ${act.passage.split('<br>').map(line => `<p style="font-size:1.05rem;color:#1E1B4B;line-height:1.7;font-family:'Nunito',sans-serif;font-weight:800;margin-bottom:0.45rem;padding:0.35rem 0.7rem;background:rgba(255,255,255,0.65);border-radius:10px;">${line.trim()}</p>`).join('')}
+            <div id="kg-story-text" style="text-align:left;display:inline-block;max-width:360px;width:100%;">
+              ${(()=>{
+                let wi=0;
+                return act.passage.split('<br>').map(line => {
+                  const wrapped = line.trim().split(/(\s+)/).map(tok => {
+                    if(/\S/.test(tok)){
+                      // strip emojis for display but keep in span; highlight targets text words only
+                      const isWord = /[a-zA-Z]/.test(tok);
+                      return isWord ? `<span data-wi="${wi++}" style="display:inline;border-radius:5px;padding:0 2px;transition:background 0.15s,color 0.15s;">${tok}</span>` : tok;
+                    }
+                    return tok;
+                  }).join('');
+                  return `<p style="font-size:1.05rem;color:#1E1B4B;line-height:1.9;font-family:'Nunito',sans-serif;font-weight:800;margin-bottom:0.45rem;padding:0.35rem 0.7rem;background:rgba(255,255,255,0.65);border-radius:10px;">${wrapped}</p>`;
+                }).join('');
+              })()}
+            </div>
+            <div style="margin-top:1rem;display:flex;gap:0.6rem;justify-content:center;flex-wrap:wrap;">
+              <button id="kg-listen-btn" onclick="kgReadStory(this)"
+                style="display:inline-flex;align-items:center;gap:0.45rem;padding:0.55rem 1.3rem;
+                background:linear-gradient(90deg,${color},#F97316);color:#fff;border:none;border-radius:50px;
+                font-family:'Nunito',sans-serif;font-weight:900;font-size:0.88rem;cursor:pointer;
+                box-shadow:0 4px 14px ${color}44;transition:transform 0.15s;">
+                🔊 Listen to Story
+              </button>
+              <button onclick="kgStopStory()" id="kg-stop-btn"
+                style="display:none;align-items:center;gap:0.45rem;padding:0.55rem 1.1rem;
+                background:#FEF2F2;color:#EF4444;border:2px solid #FECACA;border-radius:50px;
+                font-family:'Nunito',sans-serif;font-weight:900;font-size:0.88rem;cursor:pointer;">
+                ⏹ Stop
+              </button>
             </div>
           </div>
           <p style="font-family:'Nunito',sans-serif;font-weight:900;font-size:0.88rem;color:${color};margin-bottom:0.8rem;">Now answer the questions! 🌟</p>`;
@@ -4721,6 +4740,27 @@ document.addEventListener('DOMContentLoaded', function() {
       html += `<p style="font-size:0.88rem;color:#6B7280;margin-bottom:1rem;">${act.instruction}</p><div id="kgsort-items" style="display:flex;flex-direction:column;gap:0.7rem;"></div>`;
     }
     document.getElementById('kg-modal-body').innerHTML = html;
+    // store plain story text + word list for TTS word highlighting
+    if (act.passage) {
+      // 1. remove HTML tags and line breaks
+      const withTags = act.passage.replace(/<br>/gi, ' ').replace(/<[^>]+>/g, '');
+      // 2. strip ALL emoji / pictograph unicode blocks so TTS never reads emoji names
+      const noEmoji = withTags.replace(/[\u{1F000}-\u{1FFFF}\u{2600}-\u{27BF}\u{2300}-\u{23FF}\u{2B00}-\u{2BFF}\u{FE00}-\u{FE0F}\u{1F900}-\u{1F9FF}]/gu, '')
+                               .replace(/\s+/g, ' ').trim();
+      window._kgStoryText = noEmoji;
+      // 3. build word index array aligned to the clean string
+      window._kgStoryWords = [];
+      let ci = 0;
+      noEmoji.split(/(\s+)/).forEach(tok => {
+        if (/[a-zA-Z]/.test(tok)) {
+          window._kgStoryWords.push({ word: tok, ci });
+        }
+        ci += tok.length;
+      });
+    } else {
+      window._kgStoryText = '';
+      window._kgStoryWords = [];
+    }
     if (act.type === 'sort') {
       const container = document.getElementById('kgsort-items');
       const shuffled = [...act.items].sort(() => Math.random()-0.5);
@@ -4808,6 +4848,81 @@ document.addEventListener('DOMContentLoaded', function() {
         <button onclick="kgStartActivity('${key}',${idx})" style="padding:0.65rem 1.4rem;background:linear-gradient(90deg,#F59E0B,#F97316);color:#fff;border:none;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:900;font-size:0.9rem;cursor:pointer;">🔄 Try Again</button>
         <button onclick="kgOpenModal('${key}')" style="padding:0.65rem 1.4rem;background:#F3F4F6;color:#374151;border:none;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:900;font-size:0.9rem;cursor:pointer;">📚 More Activities</button>
       </div>`;
+  }
+
+  function kgClearHighlights() {
+    document.querySelectorAll('#kg-story-text span[data-wi]').forEach(s => {
+      s.style.background = '';
+      s.style.color = '';
+      s.style.fontWeight = '';
+    });
+  }
+
+  function kgReadStory(btn) {
+    const text = window._kgStoryText || '';
+    if (!text) return;
+    if (!window.speechSynthesis) {
+      alert('Sorry, your browser does not support audio. Try Chrome or Safari!');
+      return;
+    }
+    window.speechSynthesis.cancel();
+    kgClearHighlights();
+
+    const utt = new SpeechSynthesisUtterance(text);
+    utt.rate  = 0.5;    // slow & clear for KG kids
+    utt.pitch = 1.1;
+    utt.volume = 1;
+
+    // prefer a clear English voice
+    const voices = window.speechSynthesis.getVoices();
+    const preferred = voices.find(v => /samantha|karen|moira|victoria|fiona|daniel|oliver|emily|en[-_](GB|AU|US)/i.test(v.name + v.lang));
+    if (preferred) utt.voice = preferred;
+
+    const words = window._kgStoryWords || [];
+    let lastWi = -1;
+
+    utt.onboundary = (e) => {
+      if (e.name !== 'word') return;
+      kgClearHighlights();
+      // find which word-span matches this char offset
+      let bestIdx = -1;
+      for (let i = 0; i < words.length; i++) {
+        if (words[i].ci <= e.charIndex) bestIdx = i;
+        else break;
+      }
+      if (bestIdx !== -1 && bestIdx !== lastWi) {
+        lastWi = bestIdx;
+        const span = document.querySelector(`#kg-story-text span[data-wi="${bestIdx}"]`);
+        if (span) {
+          span.style.background = '#F9A8D4';
+          span.style.color = '#831843';
+          span.style.fontWeight = '900';
+          span.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }
+    };
+
+    const listenBtn = document.getElementById('kg-listen-btn');
+    const stopBtn   = document.getElementById('kg-stop-btn');
+    if (listenBtn) { listenBtn.innerHTML = '🔊 Playing…'; listenBtn.disabled = true; listenBtn.style.opacity = '0.7'; }
+    if (stopBtn)   { stopBtn.style.display = 'inline-flex'; }
+
+    utt.onend = utt.onerror = () => {
+      kgClearHighlights();
+      if (listenBtn) { listenBtn.innerHTML = '🔊 Listen to Story'; listenBtn.disabled = false; listenBtn.style.opacity = '1'; }
+      if (stopBtn)   { stopBtn.style.display = 'none'; }
+    };
+
+    window.speechSynthesis.speak(utt);
+  }
+
+  function kgStopStory() {
+    window.speechSynthesis.cancel();
+    kgClearHighlights();
+    const listenBtn = document.getElementById('kg-listen-btn');
+    const stopBtn   = document.getElementById('kg-stop-btn');
+    if (listenBtn) { listenBtn.innerHTML = '🔊 Listen to Story'; listenBtn.disabled = false; listenBtn.style.opacity = '1'; }
+    if (stopBtn)   { stopBtn.style.display = 'none'; }
   }
 
   // ── PARENT LETTER TOGGLE ──
